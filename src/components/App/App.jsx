@@ -1,11 +1,8 @@
-<Router>
-
-  <Route path="/" >
-    <h1>hello header in app.jsx</h1>
-    <Register />
-
-    <Login />
-
+<Fragment>
+  
+  <Route path='/login' component={props => <Startpage {...props} isLoginForm={true} />} />
+  <Route path='/register' component={props => <Startpage {...props} isLoginForm={false} />} />
+  <Route exact path='/'>
     <WidgetsHolder />
   </Route>
-</Router>
+</Fragment>

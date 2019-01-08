@@ -5,11 +5,12 @@
   "/*2": "---------------- App specific ----------------",
   "Component": "utilities/Component/Component",
   "  App" : "components/App/App",
+  "  Startpage": "components/App/Startpage/Startpage",
   "  WidgetsHolder": "components/App/WidgetsHolder/WidgetsHolder",
   "  Widget": "components/App/WidgetsHolder/Widget/Widget",
   "  FacebookWidget": "components/App/WidgetsHolder/Widget/FacebookWidget/FacebookWidget",
-  "  Login": "components/App/Login/Login",
-  "  Register": "components/App/Register/Register",
+  "  Login": "components/App/Startpage/Login/Login",
+  "  Register": "components/App/Startpage/Register/Register",
 
 
 

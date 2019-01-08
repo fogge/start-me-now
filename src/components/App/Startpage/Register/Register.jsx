@@ -1,6 +1,6 @@
-<Container className="container-fluid">
+<Container className="p-0">
   <h1>REGISTRATION</h1>
-  <Form className="m-2">
+  <Form className='m-2'>
     <Row form>
       <Col md={6}>
         <FormGroup>
@@ -37,7 +37,6 @@
             placeholder='Password check'
             value={this.passwordCheck}
             onChange={this.getPasswordCheck}
-
           />
         </FormGroup>
       </Col>

@@ -1,6 +1,6 @@
 import './App.scss';
 
-@observer export default class App extends Component {
+@withRouter @observer export default class App extends Component {
  
   async start(){
 

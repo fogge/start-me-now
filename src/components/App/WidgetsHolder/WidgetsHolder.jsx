@@ -1,4 +1,4 @@
-<Container className="container-fluid">
+<Container>
   <div className="d-flex flex-nowrap p-0">
     <Widget><p>hello</p></Widget>
     <Widget><p>hello</p></Widget>
