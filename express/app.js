@@ -103,7 +103,7 @@ app.post("/login", (req, res) => {
         
         if(pwMatch) {
           // Do login here
-          res.json({message: 'Logged in..'})
+          res.json({message: 'Logged in..', loggedIn: true})
 
         } else {
           res.json({message: 'Could not log in.'})

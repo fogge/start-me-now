@@ -51,6 +51,7 @@
   "{Link}": "react-router-dom",
   "{withRouter}": "react-router-dom",
   "{Switch}": "react-router-dom",
+  "{Redirect}": "react-router-dom",
   
   "/*6": "-------------------- MobX --------------------",
   "{observable}": "mobx",
@@ -58,7 +59,10 @@
   "{autorun}": "mobx",
   "{reaction}": "mobx",
   "{toJS}": "mobx",
+  "{action}": "mobx",
+  "{when}": "mobx",
   "{observer}": "mobx-react",
+  "{inject}": "mobx-react",
 
   "/*7": "------------------- jQuery -------------------",
   "jQuery": "jquery",

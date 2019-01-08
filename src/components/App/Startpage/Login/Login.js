@@ -1,6 +1,7 @@
 import './Login.scss';
+import { loginStore } from '../../../../stores/loginstore';
 
-@observer export default class Login extends Component {
+@withRouter @inject('loginStore') @observer export default class Login extends Component {
  
   async start(){
 
@@ -33,7 +34,10 @@ import './Login.scss';
         this.email = "";
         this.password = "";
 
-        console.log(res.message)
+        console.log(res.message, res.loggedIn)
+        if(res.loggedIn) {
+          loginStore.isLoggedIn = true;
+        }
       });
     };
 
