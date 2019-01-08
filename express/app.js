@@ -5,8 +5,16 @@
 const app = global.expressApp;
 const bodyParser = require("body-parser");
 const User = require("./models/User");
-const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+
+const cookieParser = require('cookie-parser');
+const session = require('express-session')
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 
 mongoose
   .connect(
@@ -17,23 +25,30 @@ mongoose
     console.log("DB Connected!");
   });
 
+  mongoose.Promise = global.Promise;
+  const db = mongoose.connection
+
+  app.use(cookieParser());
+  app.use(session({
+      secret: 'alittle1337lol',
+      resave: false,
+      saveUninitialized: true,
+      store: new MongoStore({ mongooseConnection: db })
+  }));
+
+
 app.use(bodyParser.json());
 
-// Set up socket.io
-const io = require("socket.io")(global.httpServer, {
-  path: global.production ? "/api/socket" : "/socket",
-  serveClient: false
-});
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Basic test of socket.io connectivity
-io.on("connection", function(socket) {
-  socket.on("chat message", function(msg) {
-    console.log("message: " + msg);
-  });
-  socket.on("disconnect", function() {
-    console.log("user disconnected");
-  });
-});
+app.get('/test', (req, res) => {
+  console.log(req.sessionID);
+  console.log(req.cookies);
+  res.end();
+})
+
+
 
 app.post("/register", async (req, res) => {
   console.log(req.body);
@@ -61,7 +76,7 @@ app.post("/register", async (req, res) => {
           })
             .save()
             .then(() => {
-              res.json("User registred");
+              res.json({message: "User registred"});
             });
         })
         .catch(err => console.error(err));
@@ -72,7 +87,9 @@ app.post("/register", async (req, res) => {
 
 });
 
-app.get("/login", (req, res) => {
+app.post("/login", (req, res) => {
+
+  console.log(req.body);
 
   const email = req.body.email;
   let password = req.body.password;
@@ -86,12 +103,16 @@ app.get("/login", (req, res) => {
         
         if(pwMatch) {
           // Do login here
+          res.json({message: 'Logged in..'})
+
+        } else {
+          res.json({message: 'Could not log in.'})
+
         }
   
-        res.json(pwMatch)
       });
     } else {
-      res.json('didnt find user..')
+      res.json({message: 'Didnt find user.'})
     }
    
   })
