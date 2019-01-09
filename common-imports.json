@@ -11,6 +11,7 @@
   "  FacebookWidget": "components/App/WidgetsHolder/Widget/FacebookWidget/FacebookWidget",
   "  Login": "components/App/Startpage/Login/Login",
   "  Register": "components/App/Startpage/Register/Register",
+  "  Header": "components/App/Header/Header",
 
 
 

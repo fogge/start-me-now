@@ -34,10 +34,7 @@ import { loginStore } from '../../../../stores/loginstore';
         this.email = "";
         this.password = "";
 
-        console.log(res.message, res.loggedIn)
-        if(res.loggedIn) {
-          loginStore.isLoggedIn = true;
-        }
+        this.props.loginStore.checkIfLoggedIn()
       });
     };
 

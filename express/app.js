@@ -7,12 +7,18 @@ const bodyParser = require("body-parser");
 const User = require("./models/User");
 const bcrypt = require("bcryptjs");
 
+
+/* 
+  Authentication
+*/
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
-
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
+
+/* 
+  Database
+*/
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 
@@ -43,9 +49,25 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/test', (req, res) => {
-  console.log(req.sessionID);
-  console.log(req.cookies);
+  console.log(req.user);
+  console.log(req.isAuthenticated());
   res.end();
+})
+
+app.get('/login', (req, res) => {
+  console.log('GET LOGIN')
+  if (req.isAuthenticated()) {
+    // Check if user in some organization
+    res.json({ isLoggedIn: true, user: req.user })
+  } else {
+    res.json({ isLoggedIn: false })
+  }
+})
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  // res.json({ success: true, message: 'Logged out!' })
+  res.redirect('/login');
 })
 
 
@@ -75,7 +97,10 @@ app.post("/register", async (req, res) => {
             password
           })
             .save()
-            .then(() => {
+            .then((user) => {
+              // LOGIN USER HERE USE THE LOGIN ROUTE WITH FRONTEND?
+              console.log(email, password);
+
               res.json({message: "User registred"});
             });
         })
@@ -86,6 +111,8 @@ app.post("/register", async (req, res) => {
   console.log(password);
 
 });
+
+
 
 app.post("/login", (req, res) => {
 
@@ -102,8 +129,12 @@ app.post("/login", (req, res) => {
         console.log(pwMatch);
         
         if(pwMatch) {
+          console.log(user);
+
           // Do login here
-          res.json({message: 'Logged in..', loggedIn: true})
+          req.login(user._id, () => {
+            res.json({message: 'Logged in..', loggedIn: true})
+          })
 
         } else {
           res.json({message: 'Could not log in.'})
@@ -117,7 +148,17 @@ app.post("/login", (req, res) => {
    
   })
 
-
-
-
 })
+
+
+passport.serializeUser(function(user_id, done) {
+  console.log(user_id);
+  done(null, user_id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(null, user);
+  });
+});
+
