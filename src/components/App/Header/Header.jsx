@@ -5,12 +5,12 @@
 
   </div>
   {this.props.loginStore.isLoggedIn ? 
-    <div className="d-flex flex-column align-items-center mr-3 iconholder">  
+    <div onClick={this.props.loginStore.logout} className="d-flex flex-column align-items-center mr-3 iconholder">  
       <i className="fas fa-sign-out-alt"></i>
       <p>Log out</p>
     </div>
     :
-    <div className="d-flex flex-column align-items-center mr-3 iconholder">  
+    <div onClick={this.login} className="d-flex flex-column align-items-center mr-3 iconholder">  
       <i className="fas fa-sign-in-alt"></i>
       <p>Log in</p>
     </div>

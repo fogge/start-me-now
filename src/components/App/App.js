@@ -4,8 +4,9 @@ import { loginStore } from '../../stores/loginstore';
 
 @withRouter @inject('loginStore') @observer export default class App extends Component {
  
-  componentDidMount() {
+  componentWillMount() {
     this.props.loginStore.checkIfLoggedIn();
+    console.log(this.props.loginStore.isLoggedIn)
   }
 
 }

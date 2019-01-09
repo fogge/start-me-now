@@ -35,6 +35,8 @@ import { loginStore } from '../../../../stores/loginstore';
         this.password = "";
 
         this.props.loginStore.checkIfLoggedIn()
+        document.location.href = '/';
+
       });
     };
 

@@ -1,29 +1,21 @@
 <Fragment>
-  {!loginStore.isLoggedIn && (
-    <Route
-      path='/login'
-      component={props => <Startpage {...props} isLoginForm={true} />}
-    />
-  )}
+  {this.props.loginStore.loading ? 
+  null 
+  
+  : (
+    <Switch>
+      <PrivateRoute exact path='/' component={WidgetsHolder} />
 
-  {!loginStore.isLoggedIn && (
-    <Route
-      path='/register'
-      component={props => <Startpage {...props} isLoginForm={false} />}
-    />
-  )}
-
-  {!loginStore.isLoggedIn && (
-    <Route path='/' render={() => <Redirect to='/login' />} />
-  )}
-
-  {loginStore.isLoggedIn && (
-    <Route path='/login' render={() => <Redirect to='/' />} />
-  )}
-
-  {loginStore.isLoggedIn && (
-    <Route path='/register' render={() => <Redirect to='/' />} />
-  )}
-
-  {loginStore.isLoggedIn && <Route exact path='/' component={WidgetsHolder} />}
+      <GuestRoute
+        path='/login'
+        component={props => <Startpage {...props} isLoginForm={true} />}
+      />
+      <GuestRoute
+        path='/register'
+        component={props => <Startpage {...props} isLoginForm={false} />}
+      />
+    </Switch>
+  )
+  
+  }
 </Fragment>
