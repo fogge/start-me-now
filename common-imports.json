@@ -13,6 +13,9 @@
   "  NewsWidget": "components/App/WidgetsHolder/Widget/NewsWidget/NewsWidget",
   "  TwitterWidget": "components/App/WidgetsHolder/Widget/TwitterWidget/TwitterWidget",
   "  CalenderWidget": "components/App/WidgetsHolder/Widget/CalenderWidget/CalenderWidget",
+  "  Profile": "components/App/Profile/Profile",
+  "  WidgetSettings": "components/App/Profile/Settings/WidgetSettings/WidgetSettings",
+
 
 
 
@@ -33,7 +36,6 @@
   "  {FacebookProvider}" : "react-facebook",  
   "  {Page}" : "react-facebook",
   "  {Feed}" : "react-facebook",
-  "  Profile": "components/Profile/Profile",
 
   "/*2.2": "---------------- Utilities App specific ----------------",
   "  ResponsiveIframe": "utilities/ResponsiveIframe/ResponsiveIframe",

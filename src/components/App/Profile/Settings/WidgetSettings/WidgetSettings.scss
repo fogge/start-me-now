@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+$discord-blue: #7289da;
+$discord-gray: #99aab5;
+$discord-lightBlack: #2c2f33 + 30;
+$discord-darkBlack: #23272a;
+$docs-modal-color: #e9ecef;
+
+.widget-settings {
+  h2 {
+    color: $discord-darkBlack;
+  }
+
+  h1,h2,h3,h4,h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+  
+  h4.heading {
+    cursor: pointer;
+    color: $discord-darkBlack;
+    margin: 0;
+    &:hover{
+      background: $discord-lightBlack;
+      color: $docs-modal-color;
+      border-radius: 0.25rem;
+    }
+
+  }
+
+
+  h4.heading-active {
+    cursor: pointer;
+    background: #fff;;
+    color: $discord-lightBlack;
+
+    &:hover{
+      background: $discord-lightBlack;
+      color: $docs-modal-color;
+      border-radius: 0.25rem;
+    }
+
+  }
+  
+  .opened-collapse {
+    background: #fff;
+    color: $discord-lightBlack;
+  }
+  
+  .icon-holder-docs {  
+    width: 40px;
+    display: inline-block;
+  }
+
+  .close-x {
+
+    height: 0px;
+    &:focus{
+      outline: none;
+    }
+    span {
+      padding: 1rem;
+    }
+  }
+  @media screen and (max-width: 992px) {
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 576px) {
+
+    h1 {
+      font-size: 1.7rem;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    h1 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
