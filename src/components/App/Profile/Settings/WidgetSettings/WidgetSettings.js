@@ -9,6 +9,8 @@ import './WidgetSettings.scss'
     this.getCurrentWidgets();
   }
 
+  @observable saved = false;
+
   @observable spotify = false;
   @observable news = false;
   @observable facebook = false;
@@ -86,7 +88,14 @@ import './WidgetSettings.scss'
       .then(res => res.json())
       .then(widgets => {
         console.log(widgets);
+        this.saved = true;
         this.props.widgetStore.getCurrentWidgets();
+        this.getCurrentWidgets();
+
+        setTimeout(() => {
+          this.saved = false;
+        }, 4000);
+
       });
   }
 

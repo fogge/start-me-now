@@ -4,9 +4,22 @@ $discord-blue: #7289da;
 $discord-gray: #99aab5;
 $discord-lightBlack: #2c2f33 + 30;
 $discord-darkBlack: #23272a;
+$success-green: #28a745;
 $docs-modal-color: #e9ecef;
 
 .widget-settings {
+  .success-message {
+    color: $success-green;
+    transition: 1000ms all ease;
+    transition-delay: 500ms;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  .show {
+    opacity: 1;
+  }
+
   h2 {
     color: $discord-darkBlack;
   }

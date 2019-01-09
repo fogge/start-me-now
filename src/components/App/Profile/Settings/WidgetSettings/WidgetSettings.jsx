@@ -143,7 +143,8 @@
             </Collapse>
           </Card>
 
-          <div className="d-flex justify-content-end mt-2">
+          <div className="d-flex align-items-center justify-content-end mt-2">
+            {this.saved ? <h5 className="success-message show mr-3 mb-0">Successfully saved!</h5> : <h5 className="success-message mr-3 mb-0">Successfully saved!</h5> }
             <Button onClick={this.saveWidgets} className="px-4 btn-success">Save</Button>
           </div>
 
