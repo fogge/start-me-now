@@ -1,4 +1,4 @@
-@observer export default class CalenderWidget extends Component {
+@inject('widgetStore') @observer export default class CalenderWidget extends Component {
   async start() {
 
   }
@@ -13,7 +13,7 @@
 
   createSourceLink = () => {
 
-    let links = this.calenderLinks.map((link, i) => {
+    let links = this.props.widgetStore.calenderLinks.map((link, i) => {
       return `src=${link}&color=${encodeURIComponent(this.colors[i])}&`
     })
 

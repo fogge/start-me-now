@@ -1,2 +1,2 @@
 
-<ResponsiveIframe iTitle={this.title} iSource={this.newsLink} />
+<ResponsiveIframe iTitle={this.title} iSource={this.props.widgetStore.newsLink} />

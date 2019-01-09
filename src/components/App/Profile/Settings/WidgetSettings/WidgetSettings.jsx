@@ -12,9 +12,8 @@
                 <h5>Instructions</h5>
                 <ul>
                   <li>Insert a spotify playlist link here.</li>
-                  <li>For example: https://open.spotify.com/embed/user/foggethemainman/playlist/4dXsFySwI9LPqx8abxVhrp</li>
-                  <li>Right-click any song, album, artist, playlist, podcast or episode in the Spotify player and select “Share”. Click on 'Copy Link' or 'Copy Spotify URI' to copy the Spotify Link or URI.</li>
-                  <li>An application-port. This is the port that your node.js-application is using.</li>
+                  <li>For example: https://open.spotify.com/user/foggethemainman/playlist/5ISZg0yCyPMXlTcDemeHRC?si=UtDUxqlRR-CIrMZSp-7WjA</li>
+                  <li>Right-click any song, album, artist, playlist, podcast or episode in the Spotify player and select “Share”. Click on 'Copy Link' to copy the Spotify Link.</li>
                 </ul>
                 <hr />
 
@@ -145,8 +144,6 @@
           </Card>
 
           <div className="d-flex justify-content-end mt-2">
-            <Button onClick={this.getCurrentWidgets} className="px-4 btn-success">Test</Button>
-
             <Button onClick={this.saveWidgets} className="px-4 btn-success">Save</Button>
           </div>
 

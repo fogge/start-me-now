@@ -1,9 +1,5 @@
 import { Timeline } from 'react-twitter-widgets';
 
-@observer export default class TwitterWidget extends Component {
-  async start() {
-  }
-  
-  @observable name = 'reactjs';
+@inject('widgetStore') @observer export default class TwitterWidget extends Component {
 
 }

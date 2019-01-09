@@ -1,6 +1,6 @@
 import './WidgetSettings.scss'
 
-@inject('loginStore') @observer export default class WidgetSettings extends Component {
+@inject('widgetStore') @observer export default class WidgetSettings extends Component {
   async start() {
 
   }
@@ -47,7 +47,6 @@ import './WidgetSettings.scss'
   };
 
   getCurrentWidgets = () => {
-    console.log('hello')
     fetch('api/getwidgets')
       .then(res => res.json())
       .then(widgets => {
@@ -57,26 +56,25 @@ import './WidgetSettings.scss'
         this.facebookInput = widgets.facebook;
         this.twitterInput = widgets.twitter;
         this.calenderInput = [...widgets.calender];
-
       });
   }
 
   saveWidgets = () => {
+    // fix inputs
     let calendersToSave = ' ' + toJS(this.calenderInput)
     calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
+    let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
 
     console.log(calendersToSave);
 
     const data = {
-      spotify: this.spotifyInput,
+      spotify: spotifyLink,
       news: this.newsInput,
       facebook: this.facebookInput,
       twitter: this.twitterInput,
       calender: calendersToSave
     }
 
-
-    console.log('hello')
     fetch('api/updatewidgets', {
       method: 'POST',
       headers: {
@@ -88,12 +86,19 @@ import './WidgetSettings.scss'
       .then(res => res.json())
       .then(widgets => {
         console.log(widgets);
+        this.props.widgetStore.getCurrentWidgets();
       });
   }
 
+  cutSpotifyLink(link) {
+    if(link.includes("/embed/")) {
+      return link;
+    }
 
-
-
-
+    let pos = link.indexOf('/user/')
+    let newLink = [link.slice(0, pos), '/embed', link.slice(pos)].join('');
+    let pos2 = newLink.indexOf('?si=')
+    return newLink.slice(0, pos2)
+  }
 
 }

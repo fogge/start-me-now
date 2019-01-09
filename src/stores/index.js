@@ -1,5 +1,10 @@
 import { loginStore } from './loginstore';
+import { widgetStore } from './widgetstore';
+import { uiStore } from './ui-store';
+
 
 export default {
-  loginStore
+  loginStore,
+  widgetStore,
+  uiStore
 };
