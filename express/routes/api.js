@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+const Widgets = require('../models/Widgets');
 const passport = require("passport");
 const mongoose = require("mongoose");
 
@@ -38,18 +39,12 @@ router.post("/register", async (req, res) => {
               .json({ success: false, message: "User already exists!" });
           }
 
-          console.log(password);
-
+          // Create User
           new User({
             email,
             password
-          })
-            .save()
-            .then(user => {
-              // LOGIN USER HERE USE THE LOGIN ROUTE WITH FRONTEND?
-              console.log(email, password);
-
-              res.json({ message: "User registred" });
+          }).save().then(user => {
+            res.json({ message: "User registred" });
             });
         })
         .catch(err => console.error(err));
@@ -77,6 +72,8 @@ router.post("/login", (req, res) => {
 
           // Do login here
           req.login(user._id, () => {
+            // CREATE WIDGETS
+            createWidgets(user._id);
             res.json({ message: "Logged in..", loggedIn: true });
           });
         } else {
@@ -88,5 +85,41 @@ router.post("/login", (req, res) => {
     }
   });
 });
+
+router.post("/updatewidgets", async (req, res) => {
+  const { spotify, news, facebook, twitter, calender } = req.body;
+  // Should be req.user._id when a user is logged in! 
+  // if (req.isAuthenticated()) {
+  //   // Code here later
+  // }
+  const user = '5c35b6986b8e6d41200f6d28'
+
+  Widgets.findOneAndUpdate({user: '5c366278907c444594f9ad89'},
+  {
+    spotify, 
+    news, 
+    facebook, 
+    twitter, 
+    calender
+  }, () => res.json({message: 'Successfully updated'}))
+
+
+
+});
+
+async function createWidgets(userid){
+  new Widgets({
+    user: userid,
+    spotify: '', 
+    news: '', 
+    facebook: '', 
+    twitter: '', 
+    calender: ''
+  }).save().then((widgets) => {
+    console.log('Widgets created', widgets)
+  })
+}
+
+
 
 module.exports = router;
