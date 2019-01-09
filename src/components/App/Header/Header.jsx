@@ -1,9 +1,16 @@
 <Container className="header d-flex justify-content-end py-4 px-2">
-  <div className="d-flex flex-column align-items-center mr-3 iconholder">  
+
+  <Link to='/' className="d-flex flex-column align-items-center mr-3 iconholder">  
+    <i className="fas fa-table"></i>
+    <p>Widgets</p>
+
+  </Link>
+
+  <Link to='/profile' className="d-flex flex-column align-items-center mr-3 iconholder">  
     <i className="fas fa-user"></i>
     <p>Profile</p>
 
-  </div>
+  </Link>
   {this.props.loginStore.isLoggedIn ? 
     <div onClick={this.props.loginStore.logout} className="d-flex flex-column align-items-center mr-3 iconholder">  
       <i className="fas fa-sign-out-alt"></i>

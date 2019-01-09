@@ -9,6 +9,14 @@
   "  WidgetsHolder": "components/App/WidgetsHolder/WidgetsHolder",
   "  Widget": "components/App/WidgetsHolder/Widget/Widget",
   "  FacebookWidget": "components/App/WidgetsHolder/Widget/FacebookWidget/FacebookWidget",
+  "  SpotifyWidget": "components/App/WidgetsHolder/Widget/SpotifyWidget/SpotifyWidget",
+  "  NewsWidget": "components/App/WidgetsHolder/Widget/NewsWidget/NewsWidget",
+  "  TwitterWidget": "components/App/WidgetsHolder/Widget/TwitterWidget/TwitterWidget",
+  "  CalenderWidget": "components/App/WidgetsHolder/Widget/CalenderWidget/CalenderWidget",
+
+
+
+
   "  Login": "components/App/Startpage/Login/Login",
   "  Register": "components/App/Startpage/Register/Register",
   "  Header": "components/App/Header/Header",
@@ -18,10 +26,18 @@
 
 
 
+
+
+
   "/*2.1": "---------------- React Facebook ----------------",
   "  {FacebookProvider}" : "react-facebook",  
   "  {Page}" : "react-facebook",
   "  {Feed}" : "react-facebook",
+  "  Profile": "components/Profile/Profile",
+
+  "/*2.2": "---------------- Utilities App specific ----------------",
+  "  ResponsiveIframe": "utilities/ResponsiveIframe/ResponsiveIframe",
+
 
   "/*3": "--------  Utilities (Component based) --------",
   "  NavLink": "utilities/NavLink/NavLink",

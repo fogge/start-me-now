@@ -5,6 +5,8 @@
   : (
     <Switch>
       <PrivateRoute exact path='/' component={WidgetsHolder} />
+      <PrivateRoute exact path='/profile' component={Profile} />
+
 
       <GuestRoute
         path='/login'

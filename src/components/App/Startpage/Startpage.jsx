@@ -1,8 +1,3 @@
-/* 
-this.props.loginStore.isLoggedIn ?
-<Redirect to="/" />
-: */
-
 <section className='Startpage'>
   <Container className='mt-3'>
     <Row className="col-8 mx-auto">

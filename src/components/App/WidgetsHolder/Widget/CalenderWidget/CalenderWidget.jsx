@@ -1,0 +1,1 @@
+<iframe title='assface' src={this.fullSourceLink} style={{borderWidth:0}} width="350" height="400" frameborder="0" scrolling="no"></iframe>
