@@ -92,9 +92,9 @@ router.post("/updatewidgets", async (req, res) => {
   // if (req.isAuthenticated()) {
   //   // Code here later
   // }
-  const user = '5c35b6986b8e6d41200f6d28'
+  const userid = req.user._id
 
-  Widgets.findOneAndUpdate({user: '5c366278907c444594f9ad89'},
+  Widgets.findOneAndUpdate({user: userid},
   {
     spotify, 
     news, 
@@ -102,8 +102,19 @@ router.post("/updatewidgets", async (req, res) => {
     twitter, 
     calender
   }, () => res.json({message: 'Successfully updated'}))
+});
 
+router.get("/getwidgets", (req, res) => {
+  if (req.isAuthenticated()) {
+    let userid = req.user._id;
+    Widgets.findOne({user: userid}).then(widget => {
+      console.log(widget);
+      res.json(widget);
+    })
 
+  } else {
+    res.end();
+  }
 
 });
 
