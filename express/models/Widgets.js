@@ -19,6 +19,9 @@ const widgetsSchema = new Schema({
   calender: {
     type: [String]
   },
+  quicknotes: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model('Widgets', widgetsSchema);

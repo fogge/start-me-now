@@ -20,7 +20,7 @@
         <Widget>
           <CalenderWidget />
         </Widget>
-        <Widget />
+        <Widget><QuickNoteWidget /></Widget>
       </div>
     </Container>
   ) : null}

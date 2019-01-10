@@ -84,21 +84,27 @@ router.get('/hello', (req, res) => {
 
 router.post("/updatewidgets", async (req, res) => {
   const { spotify, news, facebook, twitter, calender } = req.body;
-  // Should be req.user._id when a user is logged in! 
-  // if (req.isAuthenticated()) {
-  //   // Code here later
-  // }
-  const userid = req.user._id
+  if(req.isAuthenticated()) {
+    const userid = req.user._id
+    Widgets.findOneAndUpdate({user: userid},
+    {
+      spotify, 
+      news, 
+      facebook, 
+      twitter, 
+      calender
+    }, () => res.json({message: 'Successfully updated'}))}
 
-  Widgets.findOneAndUpdate({user: userid},
-  {
-    spotify, 
-    news, 
-    facebook, 
-    twitter, 
-    calender
-  }, () => res.json({message: 'Successfully updated'}))
 });
+
+router.post("/savenotes", async (req, res) => {
+  if(req.isAuthenticated()) {
+    const userid = req.user._id
+    Widgets.findOneAndUpdate({user: userid},
+    {
+      quicknotes: req.body.quicknotes
+    }, () => res.json({message: 'Successfully updated'}))}
+})
 
 router.get("/getwidgets", (req, res) => {
   if (req.isAuthenticated()) {

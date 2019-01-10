@@ -1,0 +1,32 @@
+$success-green: #28a745;
+
+.quick-content {
+  background: linear-gradient(#FFFFE0, #FFFFAE);
+  height: 100%;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  .quick-textarea {
+    background: transparent;
+    border: 0;
+    resize: none;
+    outline: none;
+    width: 100%;
+    &:focus{
+      outline: none;
+      box-shadow: none !important;
+      border: 0px;
+    }
+  }
+  .success-message {
+    color: $success-green;
+    transition: 1000ms all ease;
+    transition-delay: 500ms;
+    opacity: 0;
+    will-change: opacity;
+  }
+  .show {
+    opacity: 1;
+  }
+}

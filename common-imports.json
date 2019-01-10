@@ -13,9 +13,11 @@
   "  NewsWidget": "components/App/WidgetsHolder/Widget/NewsWidget/NewsWidget",
   "  TwitterWidget": "components/App/WidgetsHolder/Widget/TwitterWidget/TwitterWidget",
   "  CalenderWidget": "components/App/WidgetsHolder/Widget/CalenderWidget/CalenderWidget",
+  "  QuickNoteWidget": "components/App/WidgetsHolder/Widget/QuickNoteWidget/QuickNoteWidget",
   "  Profile": "components/App/Profile/Profile",
   "  WidgetSettings": "components/App/Profile/Settings/WidgetSettings/WidgetSettings",
   "  ProfileSettings": "components/App/Profile/Settings/ProfileSettings/ProfileSettings",
+
 
 
 
