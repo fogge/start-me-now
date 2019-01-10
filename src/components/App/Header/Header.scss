@@ -2,6 +2,13 @@ $main-blue: #00BFFF;
 $hover-blue: #00BFFF - 50;
 
 .header {
+  .logoholder {
+    img {
+      height: 85px;
+    }
+
+  }
+
   .iconholder {
     color: $main-blue;
     i {
