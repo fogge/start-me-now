@@ -1,6 +1,6 @@
 <section className='Startpage'>
-  <Container className='mt-3'>
-    <Row className="col-8 mx-auto">
+  <Container className='mt-md-3 p-0'>
+    <Row className="col-md-8 mx-auto">
       <Nav tabs>
         <NavItem>
           <NavLink to='/login'>

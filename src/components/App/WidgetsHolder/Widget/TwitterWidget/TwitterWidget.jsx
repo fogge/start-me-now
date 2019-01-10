@@ -1,7 +1,7 @@
 <Timeline
     dataSource={{
       sourceType: 'profile',
-      screenName: this.props.widgetStore.twitterName
+      screenName: 'reactjs'
     }}
     options={{
       height: '400'

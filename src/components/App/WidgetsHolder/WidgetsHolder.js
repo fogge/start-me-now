@@ -1,4 +1,4 @@
-@observer export default class WidgetsHolder extends Component {
+@inject('widgetStore') @observer export default class WidgetsHolder extends Component {
   async start() {}
 
 }

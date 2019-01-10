@@ -2,6 +2,8 @@ class UIStore {
 
   @observable width = '';
 
+
+
   getWidth = () => {
 
   }

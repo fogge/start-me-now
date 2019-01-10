@@ -1,3 +1,3 @@
 <div className="widget flex-even">
-  {this.loaded ? this.props.children : null}
+  {this.props.widgetStore.widgetsDidLoad ? this.props.children : null}
 </div>

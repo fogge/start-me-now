@@ -1,3 +1,5 @@
+import { widgetStore } from "./widgetstore";
+
 class LoginStore {
   @observable isLoggedIn = false;
   @observable user = null;
@@ -19,6 +21,7 @@ class LoginStore {
           this.user = res.user;
         }
         this.loading = false;
+        widgetStore.getCurrentWidgets();
       })
   }
 
