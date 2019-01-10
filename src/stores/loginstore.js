@@ -10,7 +10,8 @@ class LoginStore {
 
 
   checkIfLoggedIn() {
-    fetch('/api/login', {
+    fetch('/api/isloggedin', {
+      method: 'GET',
       credentials: 'include'
     })
       .then(res => res.json())

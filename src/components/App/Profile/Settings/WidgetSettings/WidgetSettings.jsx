@@ -1,6 +1,6 @@
 <Fragment>
 
-    <h1 className="ml-2 my-0"><i className="fas fa-question-circle mr-2"></i>Widget settings</h1>
+    <h1 className="ml-2 my-0"><i className="fas fa-question-circle mr-3"></i>Widget settings</h1>
     <hr className="my-2"/>
 
     <div className="widget-settings p-2 p-md-3">
@@ -117,8 +117,8 @@
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
                 <ol>
-                  <li>On a computer, open <a href="https://calendar.google.com" target="_blank" rel="noopener">Google Calendar</a> You can only get the link in from a computer, not the Google Calendar app. </li>
-                  <li>In the top right, click Settings <i class="fas fa-cog"></i> > <strong>Settings</strong>.</li>
+                  <li>On a computer, open <a href="https://calendar.google.com" target="_blank" rel="noopener noreferrer">Google Calendar</a> You can only get the link in from a computer, not the Google Calendar app. </li>
+                  <li>In the top right, click Settings <i className="fas fa-cog"></i> > <strong>Settings</strong>.</li>
                   <li>On the left side of the screen, click the name of the calendar you want the link to.</li>
                   <li>In the "Integrate calendar" section, copy the <strong>Calender-id</strong>.</li>
                   <li>For example: <strong>mail@gmail.com</strong> or a whole id: <strong>d02it01923jfq823rtrt@group.calendar.google.com</strong></li>

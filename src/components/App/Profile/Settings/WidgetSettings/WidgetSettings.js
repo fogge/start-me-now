@@ -52,7 +52,6 @@ import './WidgetSettings.scss'
     fetch('api/getwidgets')
       .then(res => res.json())
       .then(widgets => {
-        console.log(widgets);
         this.spotifyInput = widgets.spotify;
         this.newsInput = widgets.news;
         this.facebookInput = widgets.facebook;
@@ -66,9 +65,6 @@ import './WidgetSettings.scss'
     let calendersToSave = ' ' + toJS(this.calenderInput)
     calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
     let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
-
-    console.log(calendersToSave);
-
     const data = {
       spotify: spotifyLink,
       news: this.newsInput,
@@ -87,7 +83,6 @@ import './WidgetSettings.scss'
     })
       .then(res => res.json())
       .then(widgets => {
-        console.log(widgets);
         this.saved = true;
         this.props.widgetStore.getCurrentWidgets();
         this.getCurrentWidgets();

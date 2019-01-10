@@ -1,0 +1,16 @@
+
+$success-green: #28a745;
+$docs-modal-color: #e9ecef;
+
+.profile-settings {
+  .success-message {
+    color: $success-green;
+    transition: 1000ms all ease;
+    transition-delay: 500ms;
+    opacity: 0;
+    will-change: opacity;
+  }
+  .show {
+    opacity: 1;
+  }
+}
