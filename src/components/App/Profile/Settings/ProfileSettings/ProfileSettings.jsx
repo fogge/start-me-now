@@ -34,6 +34,7 @@
       <Label for='newPassword'>New password</Label>
 
       <Input
+        type="password"
         name='newPassword'
         id='newPassword'
         placeholder='New password'
@@ -46,6 +47,7 @@
       <Label for='newPasswordCheck'>Enter password again</Label>
 
       <Input
+        type="password"
         name='newPasswordCheck'
         id='newPasswordCheck'
         placeholder='New password'
@@ -58,6 +60,7 @@
       <Label for='oldPassword'>Old password</Label>
 
       <Input
+        type="password"
         name='oldPassword'
         id='oldPassword'
         placeholder='Old password'

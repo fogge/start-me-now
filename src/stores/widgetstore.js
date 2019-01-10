@@ -1,7 +1,6 @@
 import { loginStore } from "./loginstore";
 
 class WidgetStore {
-  @observable widgetsDidLoad = false;
   @observable widgetsWasFetched = false;
 
   @observable spotifyLink = "";
@@ -26,19 +25,6 @@ class WidgetStore {
     }
   };
 
-
-  listenToDomElement = () => {
-    let widgets = document.getElementsByClassName("widget");
-    setTimeout(() => {
-      if (widgets && widgets[0].offsetWidth < 500) {
-        this.widgetsDidLoad = true;
-      } else {
-        this.listenToDomElement();
-      }
-      console.log('widgets did load..', this.widgetsDidLoad);
-
-    }, 50);
-  };
 }
 
 export const widgetStore = new WidgetStore();

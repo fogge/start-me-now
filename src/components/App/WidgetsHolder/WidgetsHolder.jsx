@@ -3,7 +3,7 @@
 
   {this.props.widgetStore.widgetsWasFetched ? (
     <Container>
-      <div className='d-flex flex-nowrap p-0'>
+      <div className='d-flex flex-wrap p-0'>
         <Widget>
           <NewsWidget />
         </Widget>
@@ -13,9 +13,7 @@
         <Widget>
           <FacebookWidget />
         </Widget>
-      </div>
 
-      <div className='d-flex col-12 p-0'>
         <Widget>
           <TwitterWidget />
         </Widget>

@@ -6,7 +6,6 @@ import './Widget.scss'
   }
   // Waiting until widget has loaded to fill them
   componentDidMount() {
-    this.props.widgetStore.listenToDomElement();
   }
 
 }

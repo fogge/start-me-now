@@ -6,5 +6,24 @@
 }
 
 .flex-even {
-  flex: 1 !important;
+  flex: 1 0 25%; /* explanation below */
+  margin: 5px;
 }
+
+
+@media (max-width: 1000px) { 
+  .flex-even {
+    flex: 1 0 45%; /* explanation below */
+    margin: 5px;
+  }
+ }
+
+@media (max-width: 550px) { 
+  .flex-even {
+    flex: 1 0 95%; /* explanation below */
+    margin: 5px;
+  }
+ }
+
+
+
