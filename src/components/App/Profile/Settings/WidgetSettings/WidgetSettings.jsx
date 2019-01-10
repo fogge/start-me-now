@@ -38,10 +38,9 @@
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
                 <ul>
-                  <li>Repo - a repo on github that will be cloned.</li>
-                  <li>Branch - choose a branch from the repo.</li>
-                  <li>A name - what you want to call the application. This will also be your subdomain.</li>
-                  <li>An application-port. This is the port that your node.js-application is using.</li>
+                  <li>Insert a news link here.</li>
+                  <li>For example: https://omni.se/.</li>
+                  <li>Note that not all news can be fitted in this widget. You can try one and if it doesnt fit, choose another.</li>
                 </ul>
                 <hr />
 
@@ -66,10 +65,8 @@
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
                 <ul>
-                  <li>Repo - a repo on github that will be cloned.</li>
-                  <li>Branch - choose a branch from the repo.</li>
-                  <li>A name - what you want to call the application. This will also be your subdomain.</li>
-                  <li>An application-port. This is the port that your node.js-application is using.</li>
+                  <li>Insert a facebook-page link here.</li>
+                  <li>For example: https://www.facebook.com/StickyDirt/.</li>
                 </ul>
                 <hr />
 
@@ -94,10 +91,8 @@
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
                 <ul>
-                  <li>Repo - a repo on github that will be cloned.</li>
-                  <li>Branch - choose a branch from the repo.</li>
-                  <li>A name - what you want to call the application. This will also be your subdomain.</li>
-                  <li>An application-port. This is the port that your node.js-application is using.</li>
+                  <li>Insert a twitter-name here.</li>
+                  <li>For example: reactjs.</li>
                 </ul>
                 <hr />
 
@@ -121,12 +116,16 @@
             <Collapse isOpen={this.calender}>
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
-                <ul>
-                  <li>Repo - a repo on github that will be cloned.</li>
-                  <li>Branch - choose a branch from the repo.</li>
-                  <li>A name - what you want to call the application. This will also be your subdomain.</li>
-                  <li>An application-port. This is the port that your node.js-application is using.</li>
-                </ul>
+                <ol>
+                  <li>On a computer, open <a href="https://calendar.google.com" target="_blank" rel="noopener">Google Calendar</a> You can only get the link in from a computer, not the Google Calendar app. </li>
+                  <li>In the top right, click Settings <i class="fas fa-cog"></i> > <strong>Settings</strong>.</li>
+                  <li>On the left side of the screen, click the name of the calendar you want the link to.</li>
+                  <li>In the "Integrate calendar" section, copy the <strong>Calender-id</strong>.</li>
+                  <li>For example: <strong>mail@gmail.com</strong> or a whole id: <strong>d02it01923jfq823rtrt@group.calendar.google.com</strong></li>
+                  <li>You can choose more than one calender, seperate them by a <strong>","</strong></li>
+                  <li>For example: <strong>mail@gmail.com, d02it01923jfq823rtrt@group.calendar.google.com</strong></li>
+                  <li>Note: the calenders must be public</li>
+                </ol>
                 <hr />
 
                 <FormGroup>
@@ -150,54 +149,6 @@
 
       </div>
 
-
-
-
-
-
-
-
-
-
-  {/* <h3>Widgets Settings!</h3>
-  <p>Here you can set everything you want to show in the widgets.</p>
-  <hr />
-  <Form className="widgetsettings">
-
-   
-    <FormGroup>
-      <Label for='newsurl'>
-        <h5>News!</h5>
-        <p> Insert a newspaper link here! (You have to try it, not everything is fitable here!) </p>
-        <p> For example: https://aftonbladet.se </p>
-      </Label>
-      <Input
-        name='newsurl'
-        id='newsurl'
-        placeholder='News link'
-      />
-    </FormGroup>
-
-    <hr />
-    <FormGroup>
-      <Label for='spotifyurl'>
-        <h5>Spotify!</h5>
-        <p> Insert a spotify playlist link here! </p>
-        <p> For example: https://open.spotify.com/embed/user/foggethemainman/playlist/4dXsFySwI9LPqx8abxVhrp</p>
-        <p>Right-click any song, album, artist, playlist, podcast or episode in the Spotify player and select “Share”. Click on 'Copy Link' or 'Copy Spotify URI' to copy the Spotify Link or URI.</p>
-      </Label>
-      <Input
-        name='spotifyurl'
-        id='spotifyurl'
-        placeholder='Spotify link'
-      />
-    </FormGroup>
-   
-  </Form>
-
-
-
-  <Button>Submit</Button> */}
 
 
 </Fragment>
