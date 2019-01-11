@@ -7,6 +7,7 @@ import './ProfileSettings.scss'
 
   componentDidMount(){
     this.getCurrentProfileSettings();
+    console.log('hello from profilesettings')
   }
 
   @observable saved = false;
@@ -82,7 +83,7 @@ import './ProfileSettings.scss'
   }
 
   getCurrentProfileSettings = () => {
-    fetch('api/getprofile')
+    fetch('/api/getprofile')
       .then(res => res.json())
       .then(profileSettings => {
         this.nameInput = profileSettings.name;

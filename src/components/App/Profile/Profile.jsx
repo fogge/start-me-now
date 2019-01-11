@@ -11,7 +11,7 @@
                   ? 'active settings-link'
                   : 'settings-link'
               }
-              onClick={this.profileSettings}
+              to='/profile-settings'
             >
               Profile settings
             </NavLink>
@@ -24,6 +24,7 @@
                   : 'settings-link'
               }
               onClick={this.widgetSettings}
+              to='/widget-settings'
             >
               Widget settings
             </NavLink>

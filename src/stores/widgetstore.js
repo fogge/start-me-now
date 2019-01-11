@@ -12,7 +12,7 @@ class WidgetStore {
 
   getCurrentWidgets = () => {
     if (loginStore.isLoggedIn) {
-      fetch("api/getwidgets")
+      fetch("/api/getwidgets")
         .then(res => res.json())
         .then(widgets => {
           this.spotifyLink = widgets.spotify;

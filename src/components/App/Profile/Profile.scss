@@ -1,8 +1,21 @@
+$main-blue: #00BFFF;
+$active-blue-anchor: #00BFFF - 30;
+
 .Profile {
+  a {
+    color: $main-blue;
+    &:hover{
+      color: $active-blue-anchor;
+    }
+  }
   .profile-holder {
     border-radius: 5px;
     background: #fff;
   }
+  .active {
+    color: $active-blue-anchor !important;
+  }
+
   .settings-link {
     cursor: pointer;
     &:hover {
