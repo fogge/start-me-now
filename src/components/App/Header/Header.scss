@@ -10,7 +10,6 @@ $hover-blue: #00BFFF + 30;
   }
 
   .iconholder {
-    text-shadow: 0 0 2px #444;
     color: $main-blue;
     i {
       font-size: 30px;
@@ -21,7 +20,6 @@ $hover-blue: #00BFFF + 30;
     }
 
     &:hover {
-      text-shadow: 0 0 2px #222;
       color: $hover-blue;
       cursor: pointer;
     }

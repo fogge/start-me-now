@@ -3,7 +3,7 @@
     <i className='fas fa-user mr-3' />
     Profile settings
   </h1>
-  <hr className='my-2' />
+  <hr className='mt-2 mb-0' />
 
   <div className='widget-settings p-2 p-md-3'>
     <FormGroup>

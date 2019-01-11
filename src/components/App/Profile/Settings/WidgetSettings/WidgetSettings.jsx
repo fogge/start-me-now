@@ -1,7 +1,7 @@
 <Fragment>
 
     <h1 className="ml-3 my-0"><i className="fas fa-question-circle mr-3"></i>Widget settings</h1>
-    <hr className="my-2"/>
+    <hr className='mt-2 mb-0' />
 
     <div className="widget-settings p-2 p-md-3">
           <Card className={this.spotify ? "opened-collapse" : ""}>
@@ -159,7 +159,7 @@
                   <Input
                     name='backgroundurl'
                     id='backgroundurl'
-                    placeholder='BackgroundLink'
+                    placeholder='Background link'
                     value={this.backgroundInput}
                     onChange={this.getBackgroundInput}
                   />
