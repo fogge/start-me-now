@@ -104,7 +104,7 @@ import './WidgetSettings.scss'
   }
 
   cutSpotifyLink(link) {
-    if(link.includes("/embed/")) {
+    if(link.includes("/embed/") || !link) {
       return link;
     }
 
