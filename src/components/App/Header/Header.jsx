@@ -1,9 +1,11 @@
 <Container className="header d-flex justify-content-between align-items-center py-3 px-3">
-  <div className="logoholder ml-1">
+  
+  <Link to="/"className="logoholder ml-1">
     <img src={require('./imgs/logo.png')} alt="" />
-  </div>
+  </Link>
 
-  <Clock value={this.date} className="clock" size="100" />
+
+  <Clock value={this.date} className="clock" size={100} />
 
   <div className="d-flex justify-content-end p-0">
     <Link

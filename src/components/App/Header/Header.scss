@@ -1,5 +1,6 @@
 $main-blue: #00BFFF;
 $hover-blue: #00BFFF + 30;
+$second-main-blue: #444;
 
 .header {
   .clock {
@@ -15,6 +16,7 @@ $hover-blue: #00BFFF + 30;
   }
 
   .iconholder {
+    text-shadow: -1px 0 5px $second-main-blue, 0 1px 5px $second-main-blue, 1px 0 5px $second-main-blue, 0 -1px 5px $second-main-blue;
     color: $main-blue;
     i {
       font-size: 30px;
