@@ -2,6 +2,11 @@ $main-blue: #00BFFF;
 $hover-blue: #00BFFF + 30;
 
 .header {
+  .clock {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+  }
+
   .logoholder {
     img {
       height: 85px;
