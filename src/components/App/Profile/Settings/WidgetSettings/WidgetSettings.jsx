@@ -1,6 +1,6 @@
 <Fragment>
 
-    <h1 className="ml-2 my-0"><i className="fas fa-question-circle mr-3"></i>Widget settings</h1>
+    <h1 className="ml-3 my-0"><i className="fas fa-question-circle mr-3"></i>Widget settings</h1>
     <hr className="my-2"/>
 
     <div className="widget-settings p-2 p-md-3">
@@ -135,6 +135,33 @@
                     placeholder='Calenders links'
                     value={this.calenderInput}
                     onChange={this.getCalenderInput}
+                  />
+                </FormGroup>
+
+              </CardBody>
+            </Collapse>
+          </Card>
+
+          <Card className={this.background ? "opened-collapse mt-2" : "mt-2"}>
+            <h4 className={this.background ? "px-3 py-2 heading-active mb-0" : "px-3 py-2 heading"} color="primary" onClick={() => this.toggleCollapse('background')}><div className="icon-holder-docs"><i className="far fa-calendar-alt"></i></div>Background Image</h4>
+            {this.background && <hr className="my-0" />}
+            <Collapse isOpen={this.background}>
+              <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
+                <h5>Instructions</h5>
+                <ul>
+                  <li>Insert a picture-link here.</li>
+                  <li>For example: https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg.</li>
+                  <li>Note: Use a big picture</li>
+                </ul>
+                <hr />
+
+                <FormGroup>
+                  <Input
+                    name='backgroundurl'
+                    id='backgroundurl'
+                    placeholder='BackgroundLink'
+                    value={this.backgroundInput}
+                    onChange={this.getBackgroundInput}
                   />
                 </FormGroup>
 

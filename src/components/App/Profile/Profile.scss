@@ -1,6 +1,13 @@
-.settings-link {
-  cursor: pointer;
-  &:hover {
+.Profile {
+  .profile-holder {
+    border-radius: 5px;
     background: #fff;
   }
+  .settings-link {
+    cursor: pointer;
+    &:hover {
+      background: #fff;
+    }
+  }
 }
+

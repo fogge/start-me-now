@@ -16,6 +16,7 @@ import './WidgetSettings.scss'
   @observable facebook = false;
   @observable twitter = false;
   @observable calender = false;
+  @observable background = false;
 
   toggleCollapse(name) {
     this[name] = !this[name];
@@ -26,6 +27,7 @@ import './WidgetSettings.scss'
   @observable facebookInput = '';
   @observable twitterInput = '';
   @observable calenderInput = [];
+  @observable backgroundInput = '';
 
 
   getSpotifyInput = e => {
@@ -47,6 +49,10 @@ import './WidgetSettings.scss'
   getCalenderInput = e => {
     this.calenderInput = e.currentTarget.value;
   };
+  
+  getBackgroundInput = e => {
+    this.backgroundInput = e.currentTarget.value;
+  };
 
   getCurrentWidgets = () => {
     fetch('api/getwidgets')
@@ -57,6 +63,7 @@ import './WidgetSettings.scss'
         this.facebookInput = widgets.facebook;
         this.twitterInput = widgets.twitter;
         this.calenderInput = [...widgets.calender];
+        this.backgroundInput = widgets.background;
       });
   }
 
@@ -70,7 +77,8 @@ import './WidgetSettings.scss'
       news: this.newsInput,
       facebook: this.facebookInput,
       twitter: this.twitterInput,
-      calender: calendersToSave
+      calender: calendersToSave,
+      background: this.backgroundInput
     }
 
     fetch('api/updatewidgets', {

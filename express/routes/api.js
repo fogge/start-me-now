@@ -83,7 +83,7 @@ router.get('/hello', (req, res) => {
 
 
 router.post("/updatewidgets", async (req, res) => {
-  const { spotify, news, facebook, twitter, calender } = req.body;
+  const { spotify, news, facebook, twitter, calender, background } = req.body;
   if(req.isAuthenticated()) {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
@@ -92,7 +92,8 @@ router.post("/updatewidgets", async (req, res) => {
       news, 
       facebook, 
       twitter, 
-      calender
+      calender,
+      background
     }, () => res.json({message: 'Successfully updated'}))}
 
 });
@@ -127,7 +128,8 @@ async function createWidgets(userid){
     news: '', 
     facebook: '', 
     twitter: '', 
-    calender: ''
+    calender: '',
+    background: ''
   }).save().then((widgets) => {
     console.log('Widgets created', widgets)
   })

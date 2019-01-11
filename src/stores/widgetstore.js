@@ -8,6 +8,7 @@ class WidgetStore {
   @observable facebookLink = "";
   @observable twitterName = "";
   @observable calenderLinks = [];
+  @observable backgroundLink = "";
 
   getCurrentWidgets = () => {
     if (loginStore.isLoggedIn) {
@@ -19,8 +20,11 @@ class WidgetStore {
           this.facebookLink = widgets.facebook;
           this.twitterName = widgets.twitter;
           this.calenderLinks = [...widgets.calender];
+          this.backgroundLink = widgets.background;
 
           this.widgetsWasFetched = true;
+          console.log(this.backgroundLink)
+          document.body.style.backgroundImage = `url('${this.backgroundLink}')`;
         });
     }
   };

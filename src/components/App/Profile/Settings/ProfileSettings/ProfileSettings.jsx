@@ -1,5 +1,5 @@
 <Fragment>
-  <h1 className='ml-2 my-0'>
+  <h1 className='ml-3 my-0'>
     <i className='fas fa-user mr-3' />
     Profile settings
   </h1>

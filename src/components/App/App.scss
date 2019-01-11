@@ -3,6 +3,8 @@ $docs-modal-color: #e9ecef;
 
 body {
   background-color: $docs-modal-color;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
 }
 .App {

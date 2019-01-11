@@ -21,6 +21,9 @@ const widgetsSchema = new Schema({
   },
   quicknotes: {
     type: String
+  },
+  background: {
+    type: String
   }
 });
 
