@@ -187,7 +187,7 @@
                 
                 </div>
                 <div className="d-flex">
-                  {this.widgetPositionLoaded > 0 ? this.myWidgets.map(x => x) : null}
+                  {this.myWidgets.map(x => x)}
                   
                 </div>
 

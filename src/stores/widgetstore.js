@@ -26,7 +26,7 @@ class WidgetStore {
           this.calenderLinks = [...widgets.calender.content];
           this.backgroundLink = widgets.background;
 
-          this.allWidgets = widgets;
+          this.allWidgets = {...widgets};
 
           this.getPositions();
           document.body.style.backgroundImage = `url('${this.backgroundLink}')`;
@@ -35,6 +35,7 @@ class WidgetStore {
   };
 
   getPositions = () => {
+    this.widgetPosition = [];
     let tempArr = [];
 
     // Make an array from objects
@@ -53,6 +54,9 @@ class WidgetStore {
         }
       })
     }
+
+    console.log(toJS(this.allWidgets));
+
     console.log(toJS(this.widgetPosition));
     this.widgetsWasFetched = true;
   }

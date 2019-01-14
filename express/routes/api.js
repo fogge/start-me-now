@@ -78,25 +78,33 @@ router.post("/login", async (req, res) => {
 
 
 router.post("/updatewidgets", async (req, res) => {
-  const { spotify, news, facebook, twitter, calender, background } = req.body;
+  const { spotify, news, facebook, twitter, calender, quicknotes, background } = req.body;
   if(req.isAuthenticated()) {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
     {
       spotify: {
-        content: spotify.content
+        content: spotify.content,
+        position: spotify.position
       }, 
       news: {
-        content: news.content
+        content: news.content,
+        position: news.position
       }, 
       facebook: {
-        content: facebook.content
+        content: facebook.content,
+        position: facebook.position
       }, 
       twitter: {
-        content: twitter.content
+        content: twitter.content,
+        position: twitter.position
       }, 
       calender: {
-        content: calender.content
+        content: calender.content,
+        position: calender.position
+      },
+      quicknotes: {
+        position: quicknotes.position
       },
       background
     }, () => res.json({message: 'Successfully updated'}))}

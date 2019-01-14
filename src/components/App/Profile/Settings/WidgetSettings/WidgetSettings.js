@@ -73,25 +73,35 @@ import DadContainer from './DragAndDrop/DadContainer';
   }
 
   saveWidgets = () => {
+    let positionData = this.getNewWidgetsPosition();
     // fix inputs
     let calendersToSave = ' ' + toJS(this.calenderInput)
     calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
     let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
+
     const data = {
       spotify: {
-        content: spotifyLink
+        content: spotifyLink,
+        position: positionData['spotify'] * 1
       },
       news: {
         content: this.newsInput,
+        position: positionData['news'] * 1
       },
       facebook: {
         content: this.facebookInput,
+        position: positionData['facebook'] * 1
       },
       twitter: {
         content: this.twitterInput,
+        position: positionData['twitter'] * 1
       },
       calender: {
         content: calendersToSave,
+        position: positionData['calender'] * 1
+      },
+      quicknotes: {
+        position: positionData['quicknotes'] * 1
       },
       background: this.backgroundInput
     }
@@ -132,7 +142,6 @@ import DadContainer from './DragAndDrop/DadContainer';
   // Drag and drop
 
   @observable myWidgets = []
-  @observable widgetPositionLoaded = false;
 
   startDragAndDrop = () => {
     this.myWidgets = this.props.widgetStore.widgetPosition.map((x,i) => {
@@ -142,8 +151,22 @@ import DadContainer from './DragAndDrop/DadContainer';
         </div>
       )} 
     )
-    this.widgetPositionLoaded = true;
-    console.log(toJS(this.myWidgets));
+  }
+
+  getNewWidgetsPosition = () => {
+    let data = {}
+
+    for (let i = 0; i < 6; i++){
+      console.log(document.getElementById(i))
+      let holder = document.getElementById(i);
+      console.log(holder.firstChild.id)
+      data[holder.firstChild.id] = holder.id;
+    }
+
+    console.log(data);
+    return data;
+
+
   }
 
   allowDrop = (e) => {
