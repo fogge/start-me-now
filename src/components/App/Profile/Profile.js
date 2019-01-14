@@ -1,6 +1,6 @@
 import './Profile.scss'
 
-@inject('loginStore') @observer export default class Profile extends Component {
+@inject('loginStore') @inject('widgetStore') @observer export default class Profile extends Component {
   async start() {
 
   }

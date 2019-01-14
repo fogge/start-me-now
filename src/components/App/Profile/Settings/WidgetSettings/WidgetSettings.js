@@ -1,12 +1,15 @@
 import './WidgetSettings.scss'
+import DadItem from './DragAndDrop/DadItem';
+import DadContainer from './DragAndDrop/DadContainer';
 
 @inject('widgetStore') @observer export default class WidgetSettings extends Component {
   async start() {
-
   }
+
 
   componentDidMount(){
     this.getCurrentWidgets();
+    this.startDragAndDrop();
   }
 
   @observable saved = false;
@@ -17,6 +20,8 @@ import './WidgetSettings.scss'
   @observable twitter = false;
   @observable calender = false;
   @observable background = false;
+  @observable widgetsorder = false;
+
 
   toggleCollapse(name) {
     this[name] = !this[name];
@@ -122,6 +127,45 @@ import './WidgetSettings.scss'
     let newLink = [link.slice(0, pos), '/embed', link.slice(pos)].join('');
     let pos2 = newLink.indexOf('?si=')
     return newLink.slice(0, pos2)
+  }
+
+  // Drag and drop
+
+  @observable myWidgets = []
+  @observable widgetPositionLoaded = false;
+
+  startDragAndDrop = () => {
+    this.myWidgets = this.props.widgetStore.widgetPosition.map((x,i) => {
+      return (    
+        <div key={x + i} id={i} className="widget-holder-preview" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)}>
+          <div id={x} draggable="true" onDragStart={e => this.drag(e)} width="336" height="69" >{x}</div>
+        </div>
+      )} 
+    )
+    this.widgetPositionLoaded = true;
+    console.log(toJS(this.myWidgets));
+  }
+
+  allowDrop = (e) => {
+    e.preventDefault();
+  }
+  
+  drag = (e) => {
+    e.dataTransfer.setData("text", e.target.id);
+  }
+  
+  drop = (e) => {
+    console.log('dropped..')
+
+    if(e.target.childNodes.length === 0) {
+      e.preventDefault();
+      var data = e.dataTransfer.getData("text");
+      e.target.appendChild(document.getElementById(data));
+    } else {
+      var data = e.dataTransfer.getData("text");
+      document.getElementById('widget-rest-container').appendChild(e.target.childNodes[0])
+      e.target.appendChild(document.getElementById(data));
+    }
   }
 
 }

@@ -10,7 +10,7 @@
           ?
           
           this.props.widgetStore.widgetPosition.map(widget => {
-          return <Widget childWidget={widget}></Widget>})
+          return <Widget key={widget} childWidget={widget}></Widget>})
           :
           null
       }

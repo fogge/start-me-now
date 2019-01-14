@@ -53,6 +53,8 @@
     "react": "^16.5.2",
     "react-clock": "^2.3.0",
     "react-dev-utils": "^5.0.2",
+    "react-dnd": "^2.6.0",
+    "react-dnd-html5-backend": "^2.6.0",
     "react-dom": "^16.5.2",
     "react-facebook": "^6.0.15",
     "react-live-clock": "^3.0.0",

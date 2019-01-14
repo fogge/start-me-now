@@ -28,14 +28,13 @@ class WidgetStore {
 
           this.allWidgets = widgets;
 
-          this.testy();
-          this.widgetsWasFetched = true;
+          this.getPositions();
           document.body.style.backgroundImage = `url('${this.backgroundLink}')`;
         });
     }
   };
 
-  testy = () => {
+  getPositions = () => {
     let tempArr = [];
 
     // Make an array from objects
@@ -54,6 +53,8 @@ class WidgetStore {
         }
       })
     }
+    console.log(toJS(this.widgetPosition));
+    this.widgetsWasFetched = true;
   }
 
 }

@@ -1,12 +1,13 @@
 import stores from './stores/index';
-import { Provider } from 'mobx-react'
+import { Provider } from 'mobx-react';
 
 ReactDOM.render(
-  <Provider {...stores}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
+
+    <Provider {...stores}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
   document.getElementById("root")
 );
 registerServiceWorker();

@@ -169,6 +169,37 @@
             </Collapse>
           </Card>
 
+          <Card className={this.widgetsorder ? "opened-collapse mt-2" : "mt-2"}>
+            <h4 className={this.widgetsorder ? "px-3 py-2 heading-active mb-0" : "px-3 py-2 heading"} color="primary" onClick={() => this.toggleCollapse('widgetsorder')}><div className="icon-holder-docs"><i className="far fa-calendar-alt"></i></div>Widgets order</h4>
+            {this.widgetsorder && <hr className="my-0" />}
+            <Collapse isOpen={this.widgetsorder}>
+              <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
+                <h5>Instructions</h5>
+                <ul>
+                  <li>Insert a picture-link here.</li>
+                  <li>For example: https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg.</li>
+                  <li>Note: Use a big picture</li>
+                </ul>
+                <hr />
+
+
+                <div id="widget-rest-container" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)} className="d-flex">
+                
+                </div>
+                <div className="d-flex">
+                  {this.widgetPositionLoaded > 0 ? this.myWidgets.map(x => x) : null}
+                  
+                </div>
+
+
+
+
+
+
+              </CardBody>
+            </Collapse>
+          </Card>
+
           <div className="d-flex align-items-center justify-content-end mt-2">
             {this.saved ? <h5 className="success-message show mr-3 mb-0">Successfully saved!</h5> : <h5 className="success-message mr-3 mb-0">Successfully saved!</h5> }
             <Button onClick={this.saveWidgets} className="px-4 btn-success">Save</Button>

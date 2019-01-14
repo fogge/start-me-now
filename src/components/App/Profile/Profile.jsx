@@ -1,5 +1,7 @@
 <Fragment>
   <Header />
+
+  {this.props.widgetStore.widgetsWasFetched ? 
   <section className="Profile">
     <Container className="px-3">
       <div className="profile-holder p-0 mx-1">
@@ -39,4 +41,8 @@
       </div>
     </Container>
   </section>
+  : 
+  null
+}
+  
 </Fragment>
