@@ -58,11 +58,11 @@ import './WidgetSettings.scss'
     fetch('api/getwidgets')
       .then(res => res.json())
       .then(widgets => {
-        this.spotifyInput = widgets.spotify;
-        this.newsInput = widgets.news;
-        this.facebookInput = widgets.facebook;
-        this.twitterInput = widgets.twitter;
-        this.calenderInput = [...widgets.calender];
+        this.spotifyInput = widgets.spotify.content;
+        this.newsInput = widgets.news.content;
+        this.facebookInput = widgets.facebook.content;
+        this.twitterInput = widgets.twitter.content;
+        this.calenderInput = [...widgets.calender.content];
         this.backgroundInput = widgets.background;
       });
   }
@@ -73,11 +73,21 @@ import './WidgetSettings.scss'
     calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
     let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
     const data = {
-      spotify: spotifyLink,
-      news: this.newsInput,
-      facebook: this.facebookInput,
-      twitter: this.twitterInput,
-      calender: calendersToSave,
+      spotify: {
+        content: spotifyLink
+      },
+      news: {
+        content: this.newsInput,
+      },
+      facebook: {
+        content: this.facebookInput,
+      },
+      twitter: {
+        content: this.twitterInput,
+      },
+      calender: {
+        content: calendersToSave,
+      },
       background: this.backgroundInput
     }
 

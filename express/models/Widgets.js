@@ -5,22 +5,40 @@ const widgetsSchema = new Schema({
     type: String
   },
   spotify: {
-    type: String
+    content: String,
+    position: {
+      type: Number
+    }
   },
   news: {
-    type: String
+    content: String,
+    position: {
+      type: Number
+    }
   },
   facebook: {
-    type: String
+    content: String,
+    position: {
+      type: Number
+    }
   },
   twitter: {
-    type: String
+    content: String,
+    position: {
+      type: Number
+    }
   },
   calender: {
-    type: [String]
+    content: [String],
+    position: {
+      type: Number
+    }
   },
   quicknotes: {
-    type: String
+    content: String,
+    position: {
+      type: Number
+    }
   },
   background: {
     type: String

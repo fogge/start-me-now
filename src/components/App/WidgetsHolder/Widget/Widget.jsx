@@ -1,3 +1,3 @@
 <div className="widget flex-even">
-  {this.props.children}
+  {this.compareWidget(this.props.childWidget)}
 </div>

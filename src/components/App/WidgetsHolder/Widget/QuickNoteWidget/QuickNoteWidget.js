@@ -17,13 +17,19 @@ import './QuickNoteWidget.scss'
   };
 
   saveQuickNotes = () => {
+
+    // Get the position from array or something..
     fetch('api/savenotes', {
       method: 'POST',
       headers: {
         Accept: "application/json",
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({quicknotes: this.quickNotesInput}),
+      body: JSON.stringify({quicknotes: {
+        content: this.quickNotesInput,
+        position: 5
+
+      }}),
       credentials: 'include'
     })
       .then(res => res.json()).then((res) => {
@@ -40,7 +46,9 @@ import './QuickNoteWidget.scss'
       fetch("api/getwidgets")
         .then(res => res.json())
         .then(widgets => {
-          this.quickNotesInput = widgets.quicknotes;
+          console.log(widgets);
+
+          this.quickNotesInput = widgets.quicknotes.content;
         });
     }
   };

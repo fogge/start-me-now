@@ -4,23 +4,17 @@
   {this.props.widgetStore.widgetsWasFetched ? (
     <Container>
       <div className='d-flex flex-wrap p-0'>
-        <Widget>
-          <NewsWidget />
-        </Widget>
-        <Widget>
-          <SpotifyWidget />
-        </Widget>
-        <Widget>
-          <FacebookWidget />
-        </Widget>
 
-        <Widget>
-          <TwitterWidget />
-        </Widget>
-        <Widget>
-          <CalenderWidget />
-        </Widget>
-        <Widget><QuickNoteWidget /></Widget>
+        { this.props.widgetStore.widgetPosition.length > 0
+          
+          ?
+          
+          this.props.widgetStore.widgetPosition.map(widget => {
+          return <Widget childWidget={widget}></Widget>})
+          :
+          null
+      }
+        
       </div>
     </Container>
   ) : null}

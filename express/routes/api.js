@@ -76,11 +76,6 @@ router.post("/login", async (req, res) => {
 
 });
 
-router.get('/hello', (req, res) => {
-  console.log('yoyoyo')
-  res.end();
-})
-
 
 router.post("/updatewidgets", async (req, res) => {
   const { spotify, news, facebook, twitter, calender, background } = req.body;
@@ -88,11 +83,21 @@ router.post("/updatewidgets", async (req, res) => {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
     {
-      spotify, 
-      news, 
-      facebook, 
-      twitter, 
-      calender,
+      spotify: {
+        content: spotify.content
+      }, 
+      news: {
+        content: news.content
+      }, 
+      facebook: {
+        content: facebook.content
+      }, 
+      twitter: {
+        content: twitter.content
+      }, 
+      calender: {
+        content: calender.content
+      },
       background
     }, () => res.json({message: 'Successfully updated'}))}
 
@@ -103,7 +108,9 @@ router.post("/savenotes", async (req, res) => {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
     {
-      quicknotes: req.body.quicknotes
+      quicknotes: {
+        content: req.body.quicknotes
+      }
     }, () => res.json({message: 'Successfully updated'}))}
 })
 
@@ -111,7 +118,6 @@ router.get("/getwidgets", (req, res) => {
   if (req.isAuthenticated()) {
     let userid = req.user._id;
     Widgets.findOne({user: userid}).then(widget => {
-      console.log(widget);
       res.json(widget);
     })
 
@@ -124,11 +130,30 @@ router.get("/getwidgets", (req, res) => {
 async function createWidgets(userid){
   new Widgets({
     user: userid,
-    spotify: '', 
-    news: '', 
-    facebook: '', 
-    twitter: '', 
-    calender: '',
+    spotify: {
+      content: '',
+      position: 0
+    },
+    news: {
+      content: '',
+      position: 1
+    }, 
+    facebook: {
+      content: '',
+      position: 2
+    }, 
+    twitter: {
+      content: '',
+      position: 3
+    }, 
+    calender: {
+      content: '',
+      position: 4
+    }, 
+    quicknotes: {
+      content: '',
+      position: 5
+    }, 
     background: ''
   }).save().then((widgets) => {
     console.log('Widgets created', widgets)
