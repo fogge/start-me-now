@@ -13,6 +13,7 @@ import DadContainer from './DragAndDrop/DadContainer';
   }
 
   @observable saved = false;
+  @observable error = false;
 
   @observable spotify = false;
   @observable news = false;
@@ -73,59 +74,68 @@ import DadContainer from './DragAndDrop/DadContainer';
   }
 
   saveWidgets = () => {
-    let positionData = this.getNewWidgetsPosition();
-    // fix inputs
-    let calendersToSave = ' ' + toJS(this.calenderInput)
-    calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
-    let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
-
-    const data = {
-      spotify: {
-        content: spotifyLink,
-        position: positionData['spotify'] * 1
-      },
-      news: {
-        content: this.newsInput,
-        position: positionData['news'] * 1
-      },
-      facebook: {
-        content: this.facebookInput,
-        position: positionData['facebook'] * 1
-      },
-      twitter: {
-        content: this.twitterInput,
-        position: positionData['twitter'] * 1
-      },
-      calender: {
-        content: calendersToSave,
-        position: positionData['calender'] * 1
-      },
-      quicknotes: {
-        position: positionData['quicknotes'] * 1
-      },
-      background: this.backgroundInput
+    if (this.positionsFilled()) {
+      let positionData = this.getNewWidgetsPosition();
+      // fix inputs
+      let calendersToSave = ' ' + toJS(this.calenderInput)
+      calendersToSave = calendersToSave.replace(/\s/g, "").split(',');
+      let spotifyLink = this.cutSpotifyLink(this.spotifyInput);
+  
+      const data = {
+        spotify: {
+          content: spotifyLink,
+          position: positionData['spotify'] * 1
+        },
+        news: {
+          content: this.newsInput,
+          position: positionData['news'] * 1
+        },
+        facebook: {
+          content: this.facebookInput,
+          position: positionData['facebook'] * 1
+        },
+        twitter: {
+          content: this.twitterInput,
+          position: positionData['twitter'] * 1
+        },
+        calender: {
+          content: calendersToSave,
+          position: positionData['calender'] * 1
+        },
+        quicknotes: {
+          position: positionData['quicknotes'] * 1
+        },
+        background: this.backgroundInput
+      }
+  
+      fetch('api/updatewidgets', {
+        method: 'POST',
+        headers: {
+          Accept: "application/json",
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+        credentials: 'include'
+      })
+        .then(res => res.json())
+        .then(widgets => {
+          this.saved = true;
+          this.props.widgetStore.getCurrentWidgets();
+          this.getCurrentWidgets();
+  
+          setTimeout(() => {
+            this.saved = false;
+          }, 4000);
+  
+        });
+    } else {
+      this.error = true;
+      setTimeout(() => {
+        this.error = false;
+      }, 5000);
     }
 
-    fetch('api/updatewidgets', {
-      method: 'POST',
-      headers: {
-        Accept: "application/json",
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-      credentials: 'include'
-    })
-      .then(res => res.json())
-      .then(widgets => {
-        this.saved = true;
-        this.props.widgetStore.getCurrentWidgets();
-        this.getCurrentWidgets();
-
-        setTimeout(() => {
-          this.saved = false;
-        }, 4000);
-
-      });
+    
   }
 
   cutSpotifyLink(link) {
@@ -141,6 +151,11 @@ import DadContainer from './DragAndDrop/DadContainer';
 
   // Drag and drop
 
+
+  positionsFilled = () => {
+    return document.getElementById('widget-rest-container').childNodes.length === 0
+  }
+ 
   @observable myWidgets = []
 
   startDragAndDrop = () => {
@@ -155,18 +170,11 @@ import DadContainer from './DragAndDrop/DadContainer';
 
   getNewWidgetsPosition = () => {
     let data = {}
-
     for (let i = 0; i < 6; i++){
-      console.log(document.getElementById(i))
       let holder = document.getElementById(i);
-      console.log(holder.firstChild.id)
       data[holder.firstChild.id] = holder.id;
     }
-
-    console.log(data);
     return data;
-
-
   }
 
   allowDrop = (e) => {
@@ -176,18 +184,22 @@ import DadContainer from './DragAndDrop/DadContainer';
   drag = (e) => {
     e.dataTransfer.setData("text", e.target.id);
   }
-  
-  drop = (e) => {
-    console.log('dropped..')
 
-    if(e.target.childNodes.length === 0) {
+  drop = (e) => {
+    if(e.target.childNodes.length === 0 || e.target.id === 'widget-rest-container') {
       e.preventDefault();
-      var data = e.dataTransfer.getData("text");
+      let data = e.dataTransfer.getData("text");
       e.target.appendChild(document.getElementById(data));
     } else {
-      var data = e.dataTransfer.getData("text");
-      document.getElementById('widget-rest-container').appendChild(e.target.childNodes[0])
-      e.target.appendChild(document.getElementById(data));
+      let data = e.dataTransfer.getData("text");
+      let targetedOnDrop = e.target;
+      if(targetedOnDrop.classList.contains("widget-holder-preview")){
+        document.getElementById('widget-rest-container').appendChild(e.target.childNodes[0])
+        e.target.appendChild(document.getElementById(data));
+      } else {
+        targetedOnDrop.closest('.widget-holder-preview').appendChild(document.getElementById(data));
+        document.getElementById('widget-rest-container').appendChild(targetedOnDrop)
+      }
     }
   }
 
