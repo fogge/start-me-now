@@ -1,4 +1,4 @@
-<Container className='p-0'>
+<Container className='p-0' onKeyDown={e => {e.key === 'Enter' && this.submitLogin()}}>
   <h1 className='ml-3 my-0'>
     <i className='fas fa-user-check mr-3' />
     Login
@@ -31,6 +31,9 @@
     <div className='d-flex align-items-center justify-content-end mt-2'>
       {this.error ? <h5 className="error-message show mr-3 mb-0">{this.error}</h5> : <h5 className="error-message mr-3 mb-0"></h5> }
       <Button onClick={this.submitLogin} className='px-4 btn-success'>
+
+      
+
         Sign in
       </Button>
     </div>

@@ -3,7 +3,7 @@
     <h1 className="ml-3 my-0"><i className="fas fa-question-circle mr-3"></i>Widget settings</h1>
     <hr className='mt-2 mb-0' />
 
-    <div className="widget-settings p-2 p-md-3">
+    <div className="widget-settings p-2 p-md-3" onKeyDown={e => {e.key === 'Enter' && this.saveWidgets()}}>
           <Card className={this.spotify ? "opened-collapse" : ""}>
             <h4 className={this.spotify ? "px-3 py-2 heading-active mb-0" : "px-3 py-2 heading"} color="primary" onClick={() => this.toggleCollapse('spotify')}><div className="icon-holder-docs"><i className="fab fa-spotify"></i></div>Spotify</h4>
             {this.spotify && <hr className="my-0" />}
@@ -39,7 +39,7 @@
                 <h5>Instructions</h5>
                 <ul>
                   <li>Insert a news link here.</li>
-                  <li>For example: https://omni.se/.</li>
+                  <li>For example: https://omni.se/</li>
                   <li>Note that not all news can be fitted in this widget. You can try one and if it doesnt fit, choose another.</li>
                 </ul>
                 <hr />
@@ -66,7 +66,7 @@
                 <h5>Instructions</h5>
                 <ul>
                   <li>Insert a facebook-page link here.</li>
-                  <li>For example: https://www.facebook.com/StickyDirt/.</li>
+                  <li>For example: https://www.facebook.com/StickyDirt/</li>
                 </ul>
                 <hr />
 
@@ -92,7 +92,7 @@
                 <h5>Instructions</h5>
                 <ul>
                   <li>Insert a twitter-name here.</li>
-                  <li>For example: reactjs.</li>
+                  <li>For example: reactjs</li>
                 </ul>
                 <hr />
 
@@ -150,7 +150,7 @@
                 <h5>Instructions</h5>
                 <ul>
                   <li>Insert a picture-link here.</li>
-                  <li>For example: https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg.</li>
+                  <li>For example: https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg</li>
                   <li>Note: Use a big picture</li>
                 </ul>
                 <hr />

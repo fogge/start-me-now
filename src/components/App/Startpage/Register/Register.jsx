@@ -1,4 +1,4 @@
-<Container className='p-0'>
+<Container className='p-0' onKeyDown={e => {e.key === 'Enter' && this.submitRegistration()}}>
   <h1 className='ml-3 my-0'>
     <i className='fas fa-user-plus mr-3' />
     Register

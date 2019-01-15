@@ -45,12 +45,11 @@ export default class Register extends Component {
         .then(res => res.json())
         .then(res => {
           console.log(res);
-          // Redirect here instead
           if (res.success) {
             this.success = res.message + '! Logging you in...';
             setTimeout(() => {
               this.redirectLogin();
-            }, 5000);
+            }, 2500);
           } else {
             this.error = res.message;
             this.clearError();

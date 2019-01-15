@@ -47,6 +47,4 @@ import { loginStore } from '../../../../stores/loginstore';
       });
     };
 
-
-
 }

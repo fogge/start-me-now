@@ -5,7 +5,7 @@
   </h1>
   <hr className='mt-2 mb-0' />
 
-  <div className='widget-settings p-2 p-md-3'>
+  <div className='widget-settings p-2 p-md-3' onKeyDown={e => {e.key === 'Enter' && this.saveProfile()}}>
     <FormGroup>
       <Label for='name'>Name</Label>
 
