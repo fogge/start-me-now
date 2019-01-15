@@ -8,7 +8,7 @@ $docs-modal-color: #e9ecef;
 .header {
   background: transparent !important;
 
-  .test {
+  .clock-holder {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -41,6 +41,7 @@ $docs-modal-color: #e9ecef;
     &:hover {
       color: $hover-blue;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 

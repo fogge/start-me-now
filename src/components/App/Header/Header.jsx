@@ -6,7 +6,7 @@
   <Collapse isOpen={this.navCollapse} navbar className=''>
 
 
-    <div className='test d-none d-md-block'>
+    <div className='clock-holder d-none d-md-block'>
       <Clock />
     </div>
 

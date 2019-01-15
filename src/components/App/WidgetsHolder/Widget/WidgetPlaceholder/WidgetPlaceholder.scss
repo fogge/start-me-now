@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+$main-blue: #00BFFF;
+$hover-blue: #00BFFF + 30;
+
+.widget-place-holder-text {
+  font-family: 'Staatliches', cursive;
+  font-size: 30px;
+  color: $main-blue;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(255,255,255,0) 400px);
+  text-shadow: 0 0 30px black;
+
+  &:hover{
+    color: $hover-blue;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
