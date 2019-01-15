@@ -1,47 +1,48 @@
-<Container className="header d-flex justify-content-between align-items-center py-3 px-3">
-  
-  <Link to="/"className="logoholder ml-1 flex-even">
-    <img src={require('./imgs/logo.png')} alt="" />
-  </Link>
+<Navbar color='light' light expand='md' className='container header mb-3 mb-md-0'>
+  <NavbarBrand to='/'>    
+      <img src={require('./imgs/logo.png')} alt="" className="logoholder" />
+    </NavbarBrand>
+  <NavbarToggler onClick={this.toggleCollapse} />
+  <Collapse isOpen={this.navCollapse} navbar className=''>
 
 
-  <div className="flex-even d-flex justify-content-center">
-    <Clock />
-  </div>
+    <div className='test d-none d-md-block'>
+      <Clock />
+    </div>
 
-
-  <div className="d-flex justify-content-end p-0 flex-even">
-    <Link
-      to="/"
-      className="d-flex flex-column justify-content-center align-items-center mr-3 iconholder"
-    >
-      <i className="fas fa-table" />
-      <p>Widgets</p>
-    </Link>
-
-    <Link
-      to="/profile"
-      className="d-flex flex-column justify-content-center align-items-center mr-3 iconholder"
-    >
-      <i className="fas fa-user" />
-      <p>Profile</p>
-    </Link>
-    {this.props.loginStore.isLoggedIn ? (
-      <div
-        onClick={this.props.loginStore.logout}
-        className="d-flex flex-column justify-content-center align-items-center mr-1 iconholder"
+    <Nav className='ml-auto' navbar>
+      <Link
+        to='/'
+        className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
       >
-        <i className="fas fa-sign-out-alt" />
-        <p>Log out</p>
-      </div>
-    ) : (
-      <div
-        onClick={this.login}
-        className="d-flex flex-column justify-content-center align-items-center mr-1 iconholder"
+        <i className='fas fa-table mr-2 mr-md-0' />
+        <p>Widgets</p>
+      </Link>
+
+      <Link
+        to='/profile'
+        className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
       >
-        <i className="fas fa-sign-in-alt" />
-        <p>Log in</p>
-      </div>
-    )}
-  </div>
-</Container>
+        <i className='fas fa-user mr-2 mr-md-0' />
+        <p>Profile</p>
+      </Link>
+      {this.props.loginStore.isLoggedIn ? (
+        <div
+          onClick={this.props.loginStore.logout}
+          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
+        >
+          <i className='fas fa-sign-out-alt mr-2 mr-md-0' />
+          <p>Log out</p>
+        </div>
+      ) : (
+        <div
+          onClick={this.login}
+          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
+        >
+          <i className='fas fa-sign-in-alt mr-2 mr-md-0' />
+          <p>Log in</p>
+        </div>
+      )}
+    </Nav>
+  </Collapse>
+</Navbar>

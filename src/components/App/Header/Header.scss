@@ -1,18 +1,24 @@
 $main-blue: #00BFFF;
 $hover-blue: #00BFFF + 30;
 $second-main-blue: #444;
+$docs-modal-color: #e9ecef;
+
 
 
 .header {
+  background: transparent !important;
+
+  .test {
+    position: absolute;
+    left: 42%;
+  }
 
   .flex-even {
     flex: 1 0 25%; /* explanation below */
     margin: 0 5px 10px;
   }
   .logoholder {
-    img {
-      height: 85px;
-    }
+    height: 85px !important;
 
   }
 
@@ -26,10 +32,29 @@ $second-main-blue: #444;
       margin: 3px 0px 0px 0px;
     }
 
+
+
     &:hover {
       color: $hover-blue;
       cursor: pointer;
     }
   }
 
+}
+
+@media (max-width: 769px) { 
+  .header {
+    background: #fff !important;
+    .iconholder {
+      i {
+        width: 50px;
+        margin: 5px 0px;
+      }
+      p {
+        font-size: 20px;
+        margin: 3px 0px 0px 0px;
+      }
+
+    }
+  }
 }
