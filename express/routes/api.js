@@ -68,9 +68,9 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const email = req.body.email;
   let password = req.body.password;
-  await comparePasswords(email, password, null, (lala) => {
-    if(lala){
-      return res.json({ message: lala, loggedIn: false })
+  await comparePasswords(email, password, null, (errMsg) => {
+    if(errMsg){
+      return res.json({ message: errMsg, loggedIn: false })
 
     }
     User.findOne({ email: email }).then(user => {
@@ -173,8 +173,18 @@ async function createWidgets(userid){
 }
 
 router.post("/updateprofile", async (req, res) => {
-  console.log(req.body);
-  const { email, oldPassword, newPassword, name } = req.body;
+  const { email, oldPassword, newPassword, newPasswordCheck, name } = req.body;
+
+  console.log(newPassword, newPasswordCheck);
+
+
+  if (newPassword !== newPasswordCheck) {
+    return res.json({errorMessage: "Passwords doesn't match"})
+  }
+
+  if (newPassword.length < 6 || newPasswordCheck.length < 6) {
+    return res.json({errorMessage: "New password too short"})
+  }
 
   let savePassword
 
@@ -184,23 +194,25 @@ router.post("/updateprofile", async (req, res) => {
     savePassword = oldPassword;
   }
 
-  await comparePasswords(email, oldPassword, null, () => {
-
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(savePassword, salt, (err, hash) => {
-        savePassword = hash;
-        console.log('hello');
-        User.findOneAndUpdate({email},
-          {
-            email: email, 
-            password: savePassword, 
-            name: name
-          }, () => res.json({message: 'Successfully updated'}))
-
-      })           
-    })
-
-
+  await comparePasswords(email, oldPassword, null, (errMsg) => {
+    console.log('errormessage in update...', errMsg);
+    if(errMsg) {
+      return res.json({errorMessage: 'Wrong password'})
+    } else {
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(savePassword, salt, (err, hash) => {
+          savePassword = hash;
+          console.log('hello');
+          User.findOneAndUpdate({email},
+            {
+              email: email, 
+              password: savePassword, 
+              name: name
+            }, () => res.json({message: 'Successfully updated'}))
+  
+        })           
+      })
+    }
   })
 });
 

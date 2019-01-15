@@ -10,7 +10,8 @@ import './ProfileSettings.scss'
     console.log('hello from profilesettings')
   }
 
-  @observable saved = false;
+  @observable success = '';
+  @observable error = '';
 
   
   @observable nameInput = '';
@@ -43,11 +44,11 @@ import './ProfileSettings.scss'
   saveProfile = () => {
     console.log('saved profile')
     // fix inputs
-    if(this.newPasswordInput === this.newPasswordCheckInput) {
       const data = {
         email: this.emailInput,
         oldPassword: this.oldPasswordInput,
         newPassword: this.newPasswordInput,
+        newPasswordCheck: this.newPasswordCheckInput,
         name: this.nameInput
       }
 
@@ -62,22 +63,23 @@ import './ProfileSettings.scss'
       })
         .then(res => res.json())
         .then(res => {
-          this.saved = true;
-          this.getCurrentProfileSettings();
+          console.log(res);
+
+          if(res.errorMessage){
+            this.success = '';
+            this.error = res.errorMessage;
+          } else {
+            this.error = '';
+            this.success = res.message;
+            this.getCurrentProfileSettings();
           
-          this.newPasswordInput = '';
-          this.newPasswordCheckInput = '';
-          this.oldPasswordInput = '';
+            this.newPasswordInput = '';
+            this.newPasswordCheckInput = '';
+            this.oldPasswordInput = '';
+          }
 
-
-          setTimeout(() => {
-            this.saved = false;
-          }, 4000);
-  
         });
-    } else {
-      // Two new passwords doenst match
-    }
+
 
 
   }
