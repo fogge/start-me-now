@@ -176,19 +176,18 @@
               <CardBody className="pb-2 pt-0 mt-2 opened-collapse">
                 <h5>Instructions</h5>
                 <ul>
-                  <li>Insert a picture-link here.</li>
-                  <li>For example: https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg.</li>
-                  <li>Note: Use a big picture</li>
+                  <li>Drag the name of any widget to its placeholder to change the position of the widget.</li>
+                  <li>Note: make sure all widgets are placed within boxes or you won't be able to save.</li>
                 </ul>
                 <hr />
 
 
+                <h5 class="widget-rest-container-header p-2">Rest container, please have it empty before saving</h5>
                 <div id="widget-rest-container" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)} className="d-flex">
-                
+                 
                 </div>
-                <div className="d-flex">
+                <div className="d-flex flex-wrap">
                   {this.myWidgets.map(x => x)}
-                  
                 </div>
 
 

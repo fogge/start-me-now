@@ -103,9 +103,7 @@ router.post("/updatewidgets", async (req, res) => {
         content: calender.content,
         position: calender.position
       },
-      quicknotes: {
-        position: quicknotes.position
-      },
+      "quicknotes.position": quicknotes.position,
       background
     }, () => res.json({message: 'Successfully updated'}))}
 
@@ -117,12 +115,7 @@ router.post("/savenotes", async (req, res) => {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
     { 
-      $set: {    
-        quicknotes: {
-          content: req.body.content,
-          position : req.body.position
-        }
-      }
+      "quicknotes.content": req.body.content
     }, () => res.json({message: 'Successfully updated'}))}
 })
 

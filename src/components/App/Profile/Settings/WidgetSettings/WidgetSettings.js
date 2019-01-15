@@ -157,14 +157,17 @@ import './WidgetSettings.scss'
   @observable myWidgets = []
 
   startDragAndDrop = () => {
+
     this.myWidgets = this.props.widgetStore.widgetPosition.map((x,i) => {
       return (    
-        <div key={x + i} id={i} className="widget-holder-preview" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)}>
-          <div id={x} draggable="true" onDragStart={e => this.drag(e)} width="336" height="69" >{x}</div>
+        <div key={x + i} id={i} className="widget-holder-preview d-flex flex-even flex-column justify-content-center" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)}>
+          <div id={x} className="d-flex justify-content-center h-100 align-items-center px-2 drag-item" draggable="true" onDragStart={e => this.drag(e)} >{x}</div>
         </div>
       )} 
     )
   }
+
+
 
   getNewWidgetsPosition = () => {
     let data = {}
@@ -184,6 +187,7 @@ import './WidgetSettings.scss'
   }
 
   drop = (e) => {
+    console.log(e.dataTransfer.getData("text"))
     if(e.target.childNodes.length === 0 || e.target.id === 'widget-rest-container') {
       e.preventDefault();
       let data = e.dataTransfer.getData("text");

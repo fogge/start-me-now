@@ -9,17 +9,36 @@ import './Widget.scss'
   }
 
   compareWidget = (widget) => {
-    console.log(widget);
     if (widget === 'news') {
-      return <NewsWidget />
+      if(this.props.widgetStore.newsLink.length > 0) {
+        return <NewsWidget />
+      } else {
+        return <WidgetPlaceholder />
+      }
     } else if ( widget === 'spotify' ){
-      return <SpotifyWidget />
+      if(this.props.widgetStore.spotifyLink.length > 0) {
+        return <SpotifyWidget />
+      } else {
+        return <WidgetPlaceholder />
+      }
     } else if ( widget === 'facebook' ){
-      return <FacebookWidget />
+      if(this.props.widgetStore.facebookLink.length > 0) {
+        return <FacebookWidget />
+      } else {
+        return <WidgetPlaceholder />
+      }
     } else if ( widget === 'twitter' ){
-      return <TwitterWidget />
+      if(this.props.widgetStore.twitterName.length > 0) {
+        return <TwitterWidget />
+      } else {
+        return <WidgetPlaceholder />
+      }
     } else if ( widget === 'calender' ){
-      return <CalenderWidget />
+      if(this.props.widgetStore.calenderLinks[0].length > 0) {
+        return <CalenderWidget />
+      } else {
+        return <WidgetPlaceholder />
+      }
     } else if ( widget === 'quicknotes' ){
       return <QuickNoteWidget />
     }

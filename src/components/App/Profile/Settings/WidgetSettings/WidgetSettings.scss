@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
 
 $discord-blue: #7289da;
 $discord-gray: #99aab5;
@@ -8,6 +9,11 @@ $success-green: #28a745;
 $docs-modal-color: #e9ecef;
 
 .widget-settings {
+  .flex-even {
+    flex: 1 0 25%; /* explanation below */
+    margin: 0 5px 10px;
+  }
+
   .success-message {
     color: $success-green;
     transition: 1000ms all ease;
@@ -104,13 +110,28 @@ $docs-modal-color: #e9ecef;
   .widget-holder-preview {
     width: 100px;
     height: 120px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,.3);
+  }
+
+  .drag-item {
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+  }
+
+  .widget-rest-container-header {
+    font-family: 'Staatliches', cursive;
+    min-width: 50px;
+    border: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px dotted rgba(0,0,0,.2);
+    margin: 0px 5px;
   }
 
   #widget-rest-container {
     min-width: 50px;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,.3);
+    border-top: 0px;
+    margin: 0 5px 5px;
   }
 
 }
