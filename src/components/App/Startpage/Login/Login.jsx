@@ -4,10 +4,11 @@
     Login
   </h1>
   <hr className='mt-2 mb-0' />
-  <div className='p-2 p-md-3'>
+  <Form className='p-2 p-md-3'>
     <FormGroup>
       <Label for='loginEmail'>Email</Label>
       <Input
+        autoComplete='email'
         type='email'
         name='email'
         id='loginEmail'
@@ -19,6 +20,7 @@
     <FormGroup>
       <Label for='loginPassword'>Password</Label>
       <Input
+        autoComplete='current-password'
         type='password'
         name='password'
         id='loginPassword'
@@ -37,5 +39,5 @@
         Sign in
       </Button>
     </div>
-  </div>
+  </Form>
 </Container>

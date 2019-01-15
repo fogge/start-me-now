@@ -9,7 +9,6 @@ import './Profile.scss'
 
   componentDidMount() {
     this.showSetting = this.props.showSetting
-    console.log(this.props.showSetting);
   }
 
   profileSettings = () => {

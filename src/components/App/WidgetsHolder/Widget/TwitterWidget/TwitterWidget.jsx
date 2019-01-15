@@ -9,7 +9,6 @@
         options={{
           height: '400'
         }}
-        onLoad={() => console.log('Timeline is loaded!')}
       />
     ) : null
   }

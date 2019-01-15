@@ -5,10 +5,11 @@
   </h1>
   <hr className='mt-2 mb-0' />
 
-  <div className='p-2 p-md-3'>
+  <Form className='p-2 p-md-3'>
     <FormGroup>
       <Label for='emailRegistration'>Email</Label>
       <Input
+        autoComplete='email'
         disabled={this.disabledBtn}
         type='email'
         name='email'
@@ -21,6 +22,7 @@
     <FormGroup>
       <Label for='password'>Password</Label>
       <Input
+        autoComplete='new-password'
         disabled={this.disabledBtn}
         type='password'
         name='password'
@@ -34,6 +36,7 @@
     <FormGroup>
       <Label for='passwordCheck'>Password Check</Label>
       <Input
+        autoComplete='new-password'
         disabled={this.disabledBtn}
         type='password'
         name='passwordCheck'
@@ -51,5 +54,5 @@
         Register
       </Button>
     </div>
-  </div>
+  </Form>
 </Container>

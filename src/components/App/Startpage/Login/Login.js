@@ -31,7 +31,6 @@ import { loginStore } from '../../../../stores/loginstore';
         })
       }).then(res => res.json()).then(res => {
         // Redirect here instead
-
         if(res.loggedIn){
           this.email = "";
           this.password = "";
@@ -40,10 +39,6 @@ import { loginStore } from '../../../../stores/loginstore';
         } else {
           this.error = res.message;
         }
-
-        console.log(res)
-
-
       });
     };
 

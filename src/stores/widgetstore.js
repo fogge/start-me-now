@@ -18,7 +18,6 @@ class WidgetStore {
       fetch("/api/getwidgets")
         .then(res => res.json())
         .then(widgets => {
-          console.log(widgets);
           this.spotifyLink = widgets.spotify.content;
           this.newsLink = widgets.news.content;
           this.facebookLink = widgets.facebook.content;
@@ -55,9 +54,7 @@ class WidgetStore {
       })
     }
 
-    console.log(toJS(this.allWidgets));
 
-    console.log(toJS(this.widgetPosition));
     this.widgetsWasFetched = true;
   }
 

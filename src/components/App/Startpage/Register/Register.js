@@ -44,7 +44,6 @@ export default class Register extends Component {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
           if (res.success) {
             this.success = res.message + '! Logging you in...';
             setTimeout(() => {

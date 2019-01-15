@@ -7,7 +7,6 @@ import './ProfileSettings.scss'
 
   componentDidMount(){
     this.getCurrentProfileSettings();
-    console.log('hello from profilesettings')
   }
 
   @observable success = '';
@@ -42,7 +41,6 @@ import './ProfileSettings.scss'
 
 
   saveProfile = () => {
-    console.log('saved profile')
     // fix inputs
       const data = {
         email: this.emailInput,
@@ -63,8 +61,6 @@ import './ProfileSettings.scss'
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
-
           if(res.errorMessage){
             this.success = '';
             this.error = res.errorMessage;

@@ -2,7 +2,6 @@
 
   render() {
     const { component: Component, ...rest } = this.props;
-    console.log(this.props.loginStore.isLoggedIn)
     return (
       <Route {...rest} render={(props) => (
         this.props.loginStore.isLoggedIn ? <Component {...props} /> : <Redirect to='/login' />

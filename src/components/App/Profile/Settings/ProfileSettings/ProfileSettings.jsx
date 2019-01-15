@@ -5,11 +5,12 @@
   </h1>
   <hr className='mt-2 mb-0' />
 
-  <div className='widget-settings p-2 p-md-3' onKeyDown={e => {e.key === 'Enter' && this.saveProfile()}}>
+  <Form className='widget-settings p-2 p-md-3' onKeyDown={e => {e.key === 'Enter' && this.saveProfile()}}>
     <FormGroup>
       <Label for='name'>Name</Label>
 
       <Input
+        autoComplete='name'
         name='name'
         id='name'
         placeholder='Name'
@@ -22,6 +23,7 @@
       <Label for='email'>Email</Label>
 
       <Input
+        autoComplete='email'
         name='email'
         id='email'
         placeholder='Email'
@@ -34,6 +36,7 @@
       <Label for='newPassword'>New password</Label>
 
       <Input
+        autoComplete='new-password'
         type="password"
         name='newPassword'
         id='newPassword'
@@ -47,6 +50,7 @@
       <Label for='newPasswordCheck'>Enter password again</Label>
 
       <Input
+        autoComplete='new-password'
         type="password"
         name='newPasswordCheck'
         id='newPasswordCheck'
@@ -60,6 +64,7 @@
       <Label for='oldPassword'>Old password</Label>
 
       <Input
+        autoComplete='current-password'
         type="password"
         name='oldPassword'
         id='oldPassword'
@@ -77,5 +82,5 @@
         Save
       </Button>
     </div>
-  </div>
+  </Form>
 </Fragment>

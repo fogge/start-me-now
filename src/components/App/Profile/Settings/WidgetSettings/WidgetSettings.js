@@ -187,7 +187,6 @@ import './WidgetSettings.scss'
   }
 
   drop = (e) => {
-    console.log(e.dataTransfer.getData("text"))
     if(e.target.childNodes.length === 0 || e.target.id === 'widget-rest-container') {
       e.preventDefault();
       let data = e.dataTransfer.getData("text");

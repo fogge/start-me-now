@@ -40,8 +40,6 @@ import './QuickNoteWidget.scss'
       fetch("api/getwidgets")
         .then(res => res.json())
         .then(widgets => {
-          console.log(widgets);
-
           this.quickNotesInput = widgets.quicknotes.content;
         });
     }

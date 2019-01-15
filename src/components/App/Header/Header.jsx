@@ -1,6 +1,6 @@
 <Navbar color='light' light expand='md' className='container header mb-3 mb-md-0'>
   <NavbarBrand to='/'>    
-      <img src={require('./imgs/logo.png')} alt="" className="logoholder" />
+      <img src={require('./imgs/logo.png')} alt="Start me now logotype" className="logoholder" />
     </NavbarBrand>
   <NavbarToggler onClick={this.toggleCollapse} />
   <Collapse isOpen={this.navCollapse} navbar className=''>
