@@ -1,8 +1,8 @@
 <Fragment>
   {this.props.widgetStore.widgetsWasFetched ? 
   <section className="Profile">
-    <Container className="px-3">
-      <div className="profile-holder p-0 mx-1">
+    <Container className="px-0 px-md-3">
+      <div className="profile-holder p-2 p-md-0 mx-0 mx-md-1">
         <Nav tabs className="mb-2">
           <NavItem>
             <NavLink

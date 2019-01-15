@@ -1,7 +1,7 @@
 <Fragment>
 
   {this.props.widgetStore.widgetsWasFetched ? (
-    <Container>
+    <Container className="p-0 p-md-2">
       <div className='d-flex flex-wrap p-0'>
 
         { this.props.widgetStore.widgetPosition.length > 0
