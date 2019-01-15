@@ -1,4 +1,5 @@
 <div className="mb-3 bg-header">
+  <Header />
   {this.props.loginStore.loading ? null : (
     <Switch>
       <PrivateRoute exact path="/" component={WidgetsHolder} />

@@ -1,5 +1,4 @@
 <Fragment>
-  <Header />
 
   {this.props.widgetStore.widgetsWasFetched ? (
     <Container>

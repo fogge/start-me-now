@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+$docs-modal-color: #e9ecef;
+$main-blue: #00bfff;
+$active-blue-anchor: #00bfff - 30;
+
+.Startpage {
+  a {
+    color: $main-blue;
+    &:hover {
+      color: $active-blue-anchor;
+    }
+  }
+
+  .startpage-holder {
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  .active {
+    color: $active-blue-anchor !important;
+  }
+
+  .link {
+    cursor: pointer;
+    &:hover {
+      background: #fff;
+    }
+  }
+}

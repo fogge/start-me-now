@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,900');
+$main-blue: #00BFFF;
+
+.clock {
+  font-family: 'Orbitron', sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid rgba(232, 236, 241, 0.5);
+  color: $main-blue;
+}

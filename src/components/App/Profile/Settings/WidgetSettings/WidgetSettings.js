@@ -1,6 +1,4 @@
 import './WidgetSettings.scss'
-import DadItem from './DragAndDrop/DadItem';
-import DadContainer from './DragAndDrop/DadContainer';
 
 @inject('widgetStore') @observer export default class WidgetSettings extends Component {
   async start() {

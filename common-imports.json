@@ -15,7 +15,6 @@
   "  CalenderWidget": "components/App/WidgetsHolder/Widget/CalenderWidget/CalenderWidget",
   "  QuickNoteWidget": "components/App/WidgetsHolder/Widget/QuickNoteWidget/QuickNoteWidget",
   "  Profile": "components/App/Profile/Profile",
-  "  Clock": "react-clock",
   "  WidgetSettings": "components/App/Profile/Settings/WidgetSettings/WidgetSettings",
   "  ProfileSettings": "components/App/Profile/Settings/ProfileSettings/ProfileSettings",
 
@@ -28,6 +27,7 @@
   "  Login": "components/App/Startpage/Login/Login",
   "  Register": "components/App/Startpage/Register/Register",
   "  Header": "components/App/Header/Header",
+  "  Clock": "components/App/Header/Clock/Clock",
   "  PrivateRoute": "HOC/PrivateRoute",
   "  GuestRoute": "HOC/GuestRoute",
 

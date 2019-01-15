@@ -4,11 +4,11 @@ $second-main-blue: #444;
 
 
 .header {
-  .clock {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-  }
 
+  .flex-even {
+    flex: 1 0 25%; /* explanation below */
+    margin: 0 5px 10px;
+  }
   .logoholder {
     img {
       height: 85px;

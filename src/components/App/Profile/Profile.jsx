@@ -1,6 +1,4 @@
 <Fragment>
-  <Header />
-
   {this.props.widgetStore.widgetsWasFetched ? 
   <section className="Profile">
     <Container className="px-3">

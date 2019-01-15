@@ -51,7 +51,6 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react": "^16.5.2",
-    "react-clock": "^2.3.0",
     "react-dev-utils": "^5.0.2",
     "react-dnd": "^2.6.0",
     "react-dnd-html5-backend": "^2.6.0",
