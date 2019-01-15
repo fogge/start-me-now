@@ -1,4 +1,5 @@
-<div className="mb-3 bg-header">
+<Fragment>
+<div className="mb-3">
   <Header />
   {this.props.loginStore.loading ? null : (
     <Switch>
@@ -20,3 +21,5 @@
     </Switch>
   )}
 </div>
+<div className="bg-header"></div>
+</Fragment>
