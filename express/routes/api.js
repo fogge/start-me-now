@@ -22,37 +22,47 @@ router.get("/logout", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  console.log(req.body);
   const email = req.body.email;
   let password = req.body.password;
-
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (err, hash) => {
-      password = hash;
-
-      // Check if user exists already
-      User.findOne({ email })
-        .then(user => {
-          if (user) {
-            return res
-              .status(400)
-              .json({ success: false, message: "User already exists!" });
-          }
-
-          // Create User
-          new User({
-            email,
-            password,
-            name: 'John Doe'
-          }).save().then(user => {
-            res.json({ message: "User registred" });
-            });
-        })
-        .catch(err => console.error(err));
+  const pwCheck = req.body.pwCheck
+  console.log(validateEmail(email))
+  console.log(email, password, pwCheck)
+  if(!validateEmail(email)){
+    return res.json({ success: false, message: "That is not a valid email!" })
+  } else if(password === pwCheck) {
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(password, salt, (err, hash) => {
+        password = hash;
+  
+        // Check if user exists already
+        User.findOne({ email })
+          .then(user => {
+            if (user) {
+              return res
+                .status(400)
+                .json({ success: false, message: "User already exists!" });
+            }
+  
+            // Create User
+            new User({
+              email,
+              password,
+              name: 'John Doe'
+            }).save().then(user => {
+              res.json({ success: true, message: "User registred" });
+              });
+          })
+          .catch(err => console.error(err));
+      });
     });
-  });
 
-  console.log(password);
+
+
+
+
+  } else {
+    res.json({ success: false, message: "Passwords doesn't match!" });
+  }
 });
 
 router.post("/login", async (req, res) => {
@@ -235,5 +245,9 @@ const comparePasswords = async (email, comparePassword, newPassword, cb) => {
   });
 }
 
+const validateEmail = (email) => {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 
 module.exports = router;
