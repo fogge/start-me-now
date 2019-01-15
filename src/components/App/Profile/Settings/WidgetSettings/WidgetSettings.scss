@@ -11,8 +11,24 @@ $docs-modal-color: #e9ecef;
 .widget-settings {
   .flex-even {
     flex: 1 0 25%; /* explanation below */
-    margin: 0 5px 10px;
+    margin: 5px;
   }
+  
+  
+  @media (max-width: 1000px) { 
+    .flex-even {
+      flex: 1 0 45%; /* explanation below */
+      margin: 5px;
+    }
+   }
+  
+  @media (max-width: 550px) { 
+    .flex-even {
+      flex: 1 0 95%; /* explanation below */
+      margin: 5px;
+    }
+   }
+  
 
   .success-message {
     color: $success-green;
