@@ -16,6 +16,8 @@ Start me now was the master thesis for my eduction on fullstack web developer. I
 ### npm install 
 Install all dependencies
 
+### run MongoDB
+
 ### npm start
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
