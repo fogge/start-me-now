@@ -112,12 +112,16 @@ router.post("/updatewidgets", async (req, res) => {
 });
 
 router.post("/savenotes", async (req, res) => {
+  console.log(req.body);
   if(req.isAuthenticated()) {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
-    {
-      quicknotes: {
-        content: req.body.quicknotes
+    { 
+      $set: {    
+        quicknotes: {
+          content: req.body.content,
+          position : req.body.position
+        }
       }
     }, () => res.json({message: 'Successfully updated'}))}
 })
