@@ -29,8 +29,9 @@
     </FormGroup>
 
     <div className='d-flex align-items-center justify-content-end mt-2'>
+      {this.error ? <h5 className="error-message show mr-3 mb-0">{this.error}</h5> : <h5 className="error-message mr-3 mb-0"></h5> }
       <Button onClick={this.submitLogin} className='px-4 btn-success'>
-        Login
+        Sign in
       </Button>
     </div>
   </div>

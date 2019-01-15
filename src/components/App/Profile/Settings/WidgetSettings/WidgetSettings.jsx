@@ -182,7 +182,7 @@
                 <hr />
 
 
-                <h5 class="widget-rest-container-header p-2">Rest container, please have it empty before saving</h5>
+                <h5 className="widget-rest-container-header p-2">Rest container, please have it empty before saving</h5>
                 <div id="widget-rest-container" onDrop={e => this.drop(e)} onDragOver={e => this.allowDrop(e)} className="d-flex">
                  
                 </div>

@@ -32,7 +32,7 @@
           className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
         >
           <i className='fas fa-sign-out-alt mr-2 mr-md-0' />
-          <p>Log out</p>
+          <p>Sign out</p>
         </div>
       ) : (
         <div
@@ -40,7 +40,7 @@
           className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
         >
           <i className='fas fa-sign-in-alt mr-2 mr-md-0' />
-          <p>Log in</p>
+          <p>Sign in</p>
         </div>
       )}
     </Nav>

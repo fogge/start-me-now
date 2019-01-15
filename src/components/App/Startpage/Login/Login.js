@@ -9,7 +9,7 @@ import { loginStore } from '../../../../stores/loginstore';
 
   @observable email = '';
   @observable password = '';
-
+  @observable error = '';
   getEmail = e => {
     this.email = e.currentTarget.value;
   };
@@ -31,11 +31,18 @@ import { loginStore } from '../../../../stores/loginstore';
         })
       }).then(res => res.json()).then(res => {
         // Redirect here instead
-        this.email = "";
-        this.password = "";
 
-        this.props.loginStore.checkIfLoggedIn()
-        document.location.href = '/';
+        if(res.loggedIn){
+          this.email = "";
+          this.password = "";
+          this.props.loginStore.checkIfLoggedIn()
+          document.location.href = '/';
+        } else {
+          this.error = res.message;
+        }
+
+        console.log(res)
+
 
       });
     };

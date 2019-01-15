@@ -66,24 +66,21 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  console.log(req.body);
-
   const email = req.body.email;
   let password = req.body.password;
-  await comparePasswords(email, password, null, () => {
-    User.findOne({ email: email }).then(user => {
-      console.log(user);
+  await comparePasswords(email, password, null, (lala) => {
+    if(lala){
+      return res.json({ message: lala, loggedIn: false })
 
-      // Do login here
+    }
+    User.findOne({ email: email }).then(user => {
       req.login(user._id, () => {
         // CREATE WIDGETS
         createWidgets(user._id);
         res.json({ message: "Logged in..", loggedIn: true });
       });
     })
-
   });
-
 });
 
 
@@ -231,16 +228,14 @@ const comparePasswords = async (email, comparePassword, newPassword, cb) => {
         console.log(pwMatch);
 
         if (pwMatch) {
-          console.log('IT WAS FOUND!')
-          cb();
-          return true;
+          return cb();
         } else {
-          return false;
+          return cb('Password did not match!');
         }
       });
     } else {
       // No user found
-      return false
+      return cb('User was not found!');
     }
   });
 }
