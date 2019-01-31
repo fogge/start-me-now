@@ -29,7 +29,7 @@
       {this.props.loginStore.isLoggedIn ? (
         <div
           onClick={this.props.loginStore.logout}
-          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
+          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-1 iconholder'
         >
           <i className='fas fa-sign-out-alt mr-2 mr-md-0' />
           <p>Sign out</p>
@@ -37,7 +37,7 @@
       ) : (
         <div
           onClick={this.login}
-          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-3 iconholder'
+          className='d-flex flex-md-column justify-content-md-center align-items-center mr-0 mr-md-1 iconholder'
         >
           <i className='fas fa-sign-in-alt mr-2 mr-md-0' />
           <p>Sign in</p>
