@@ -49,16 +49,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/test', (req, res) => {
-  console.log(req.user);
-  console.log(req.isAuthenticated());
-  res.end();
-})
-
-
-
 passport.serializeUser(function(user_id, done) {
-  console.log(user_id);
   done(null, user_id);
 });
 

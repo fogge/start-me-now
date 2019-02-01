@@ -6,7 +6,6 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 
 router.get("/isloggedin", (req, res) => {
-  console.log("GET LOGIN");
   if (req.isAuthenticated()) {
     // Check if user in some organization
     res.json({ isLoggedIn: true, user: req.user });
@@ -25,8 +24,7 @@ router.post("/register", async (req, res) => {
   const email = req.body.email;
   let password = req.body.password;
   const pwCheck = req.body.pwCheck
-  console.log(validateEmail(email))
-  console.log(email, password, pwCheck)
+
   if(!validateEmail(email)){
     return res.json({ success: false, message: "That is not a valid email!" })
   } else if(password === pwCheck) {
@@ -117,7 +115,6 @@ router.post("/updatewidgets", async (req, res) => {
 });
 
 router.post("/savenotes", async (req, res) => {
-  console.log(req.body);
   if(req.isAuthenticated()) {
     const userid = req.user._id
     Widgets.findOneAndUpdate({user: userid},
@@ -168,15 +165,11 @@ async function createWidgets(userid){
     }, 
     background: ''
   }).save().then((widgets) => {
-    console.log('Widgets created', widgets)
   })
 }
 
 router.post("/updateprofile", async (req, res) => {
   const { email, oldPassword, newPassword, newPasswordCheck, name } = req.body;
-
-  console.log(newPassword, newPasswordCheck);
-
 
   if (newPassword !== newPasswordCheck) {
     return res.json({errorMessage: "Passwords doesn't match"})
@@ -195,14 +188,12 @@ router.post("/updateprofile", async (req, res) => {
   }
 
   await comparePasswords(email, oldPassword, null, (errMsg) => {
-    console.log('errormessage in update...', errMsg);
     if(errMsg) {
       return res.json({errorMessage: 'Wrong password'})
     } else {
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(savePassword, salt, (err, hash) => {
           savePassword = hash;
-          console.log('hello');
           User.findOneAndUpdate({email},
             {
               email: email, 
@@ -231,13 +222,9 @@ router.get("/getprofile", (req, res) => {
 });
 
 const comparePasswords = async (email, comparePassword, newPassword, cb) => {
-  console.log(email);
   User.findOne({ email: email }).then(user => {
     if (user) {
-      console.log(user.password);
-
       bcrypt.compare(comparePassword, user.password, (err, pwMatch) => {
-        console.log(pwMatch);
 
         if (pwMatch) {
           return cb();
